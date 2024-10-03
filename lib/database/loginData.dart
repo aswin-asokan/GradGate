@@ -16,8 +16,10 @@ class Logindata {
 
   // Initialize the database and create the table if not exists
   Future<Database> _initDatabase() async {
+    final String dbPath = join(await getDatabasesPath(), 'users.db');
+    print("Database path: $dbPath"); // Print the database path
     return await openDatabase(
-      join(await getDatabasesPath(), 'users.db'),
+      dbPath,
       onCreate: (db, version) {
         return db.execute(
           "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, mail TEXT, password TEXT, user_type TEXT)",

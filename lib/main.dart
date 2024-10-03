@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/College/homeColl.dart';
 import 'package:gradgate/Employer/homeEmp.dart';
+import 'package:gradgate/Profile/colReg.dart';
+import 'package:gradgate/Profile/empDetails.dart';
+import 'package:gradgate/Profile/empReg.dart';
 import 'package:gradgate/Profile/login.dart';
 import 'package:gradgate/Profile/signup.dart';
+import 'package:gradgate/Profile/studReg.dart';
 import 'package:gradgate/Student/homeStud.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -25,6 +29,10 @@ class MyApp extends StatelessWidget {
           '/StudentHome': (context) => const Homestud(),
           '/EmployerHome': (context) => const Homeemp(),
           '/CollegeHome': (context) => const Homecoll(),
+          '/StudentRegister': (context) => const Studreg(),
+          '/CollegeRegister': (context) => const Colreg(),
+          '/EmployerRegister': (context) => const Empreg(),
+          '/EmployerDetails': (context) => const Empdetails(),
         },
         theme: ThemeData(
             textTheme:

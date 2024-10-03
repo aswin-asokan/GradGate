@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/custPass.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/database/loginData.dart';
+import 'package:gradgate/variables.dart';
 import 'package:password_strength_checker/password_strength_checker.dart';
 
 class Sign extends StatefulWidget {
@@ -111,12 +112,15 @@ class _SignState extends State<Sign> {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () async {
-                          String emailValue = email.text.trim();
+                          String emailValue = email.text.trim().toLowerCase();
                           String passwordValue = pass.text.trim();
                           String userTypeValue =
                               type; // Assuming you have user type
                           var strength =
                               PasswordStrength.calculate(text: passwordValue);
+                          setState(() {
+                            mailID = emailValue.toString();
+                          });
                           // Check if the email already exists
                           bool exists =
                               await Logindata().emailExists(emailValue);
@@ -161,6 +165,16 @@ class _SignState extends State<Sign> {
                               await Logindata().insertUser(
                                   emailValue, passwordValue, userTypeValue);
                               // Show a success message or navigate to another page
+                              if (userTypeValue == "Student") {
+                                Navigator.popAndPushNamed(
+                                    context, '/StudentRegister');
+                              } else if (userTypeValue == "Employer") {
+                                Navigator.popAndPushNamed(
+                                    context, '/EmployerDetails');
+                              } else {
+                                Navigator.popAndPushNamed(
+                                    context, '/CollegeRegister');
+                              }
                             }
                           }
                         }, // Call the sign-up handler

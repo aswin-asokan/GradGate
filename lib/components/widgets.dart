@@ -53,6 +53,9 @@ Widget userType(IconData icon, String text, bool isSelected) {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(icon, size: 30, color: isSelected ? Colors.white : Colors.black),
+        SizedBox(
+          width: 5,
+        ),
         Text(
           text,
           style: TextStyle(
