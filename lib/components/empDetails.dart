@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gradgate/components/locField.dart';
+import 'package:gradgate/components/locationField.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
 
@@ -88,11 +88,11 @@ class _EmpdetState extends State<Empdet> {
                             phone.text.isNotEmpty &&
                             type.text.isNotEmpty) {
                           setState(() {
-                            loc = location.text.toString();
-                            cname = name.text.toString();
-                            cphone = phone.text.toString();
-                            industryType = type.text.toString();
-                            print(cname);
+                            var_loc = location.text.toString();
+                            var_name = name.text.toString();
+                            var_phone = phone.text.toString();
+                            var_type = type.text.toString();
+                            print(var_name);
                           });
                           Navigator.popAndPushNamed(
                               context, '/EmployerRegister');

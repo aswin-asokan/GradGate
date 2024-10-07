@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/components/imageSlide.dart';
-import 'package:gradgate/components/regEmp.dart';
+import 'package:gradgate/components/empRegister.dart';
 
-class Empreg extends StatefulWidget {
-  const Empreg({super.key});
+class Empregui extends StatefulWidget {
+  const Empregui({super.key});
 
   @override
-  State<Empreg> createState() => _EmpregState();
+  State<Empregui> createState() => _EmpreguiState();
 }
 
-class _EmpregState extends State<Empreg> {
+class _EmpreguiState extends State<Empregui> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: background,
       body: width < 800
-          ? const Regemp()
+          ? const Empregister()
           : Row(
-              children: [ImageSlider(width: width), const Regemp()],
+              children: [ImageSlider(width: width), const Empregister()],
             ),
     );
   }

@@ -1,8 +1,14 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/custPass.dart';
 import 'package:gradgate/components/widgets.dart';
+import 'package:gradgate/database/employer.dart';
 import 'package:gradgate/database/loginData.dart';
+import 'package:gradgate/variables.dart';
 
 class Log extends StatefulWidget {
   const Log({super.key});
@@ -33,7 +39,39 @@ class _LogState extends State<Log> {
         // ignore: use_build_context_synchronously
         Navigator.popAndPushNamed(context, '/CollegeHome');
       } else if (usertype == "Employer") {
+        String mail = "",
+            companyName = "",
+            industry = "",
+            location = "",
+            about = "",
+            phone = "",
+            image = "";
+        var doc;
         // ignore: use_build_context_synchronously
+        List<Map<String, dynamic>> employers =
+            await Employer().getEmployers(email.text);
+
+        // Loop through each employer and store the details in variables
+        for (var employer in employers) {
+          mail = employer['mail'];
+          companyName = employer['company_name'];
+          industry = employer['industry_type'];
+          location = employer['location'];
+          about = employer['about'];
+          phone = employer['phone'];
+          image = employer['image'];
+          doc = Document.fromJson(jsonDecode(about));
+        }
+        setState(() {
+          urlImg = image;
+          var_loc = location;
+          var_name = companyName;
+          var_type = industry;
+          var_phone = phone;
+          var_about = doc;
+          var_mail = mail;
+        });
+        print(urlImg);
         Navigator.popAndPushNamed(context, '/EmployerHome');
       }
     } else {

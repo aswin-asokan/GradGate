@@ -46,6 +46,11 @@ dependencies:
   awesome_place_search: ^2.0.0
   image_picker: ^1.1.2
   file_picker: ^8.1.2
+  sidebarx: ^0.17.1
+  flutter_side_menu: ^0.5.3
+  badges: ^3.1.2
+  simple_sidebar: ^0.0.8
+  flutter_quill: ^10.8.2
 
 dev_dependencies:
   flutter_test:
@@ -73,7 +78,7 @@ flutter:
     - assets/images/back.jpg
     - assets/images/back2.png
     - assets/images/no-profile-picture-15258 (1).png
-  #   - images/a_dot_ham.jpeg
+    - assets/images/White Minimalist Corporate Personal Profile LinkedIn Banner.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

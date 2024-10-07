@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/components/imageSlide.dart';
-import 'package:gradgate/components/sign.dart';
+import 'package:gradgate/components/signUP.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Signupui extends StatefulWidget {
+  const Signupui({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<Signupui> createState() => _SignupuiState();
 }
 
-class _SignupState extends State<Signup> {
+class _SignupuiState extends State<Signupui> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;

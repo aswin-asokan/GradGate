@@ -66,7 +66,7 @@ class _LocationAutocompleteState extends State<LocationAutocomplete> {
           },
           decoration: InputDecoration(
               hintText: 'Enter Location',
-              suffixIcon: _isLoading
+              prefixIcon: _isLoading
                   ? Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: CircularProgressIndicator(),

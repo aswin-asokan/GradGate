@@ -83,8 +83,7 @@ class _SignState extends State<Sign> {
                             type = "Student";
                           });
                         },
-                        child:
-                            userType(Icons.book, "Student", type == "Student"),
+                        child: Type(Icons.book, "Student", type == "Student"),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -92,8 +91,7 @@ class _SignState extends State<Sign> {
                             type = "College";
                           });
                         },
-                        child: userType(
-                            Icons.school, "College", type == "College"),
+                        child: Type(Icons.school, "College", type == "College"),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -101,7 +99,7 @@ class _SignState extends State<Sign> {
                             type = "Employer";
                           });
                         },
-                        child: userType(
+                        child: Type(
                             Icons.computer, "Employer", type == "Employer"),
                       ),
                     ],
@@ -119,7 +117,7 @@ class _SignState extends State<Sign> {
                           var strength =
                               PasswordStrength.calculate(text: passwordValue);
                           setState(() {
-                            mailID = emailValue.toString();
+                            var_mail = emailValue.toString();
                           });
                           // Check if the email already exists
                           bool exists =

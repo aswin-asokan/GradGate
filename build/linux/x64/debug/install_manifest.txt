@@ -2,6 +2,7 @@
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/icudtl.dat
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/lib/libfile_selector_linux_plugin.so
+/home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/packages/iconsax_flutter/fonts/FlutterIconsax.ttf
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_map/lib/assets/flutter_map_logo.png
@@ -15,4 +16,5 @@
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/back.jpg
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/no-profile-picture-15258%20(1).png
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/back2.png
+/home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/White%20Minimalist%20Corporate%20Personal%20Profile%20LinkedIn%20Banner.png
 /home/aswin/Documents/GitHub/GradGate/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
