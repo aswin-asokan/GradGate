@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/College/homeColl.dart';
+import 'package:gradgate/Employer/EmpDashboard.dart';
 import 'package:gradgate/Employer/homeEmp.dart';
 import 'package:gradgate/Profile/colRegUI.dart';
 import 'package:gradgate/Profile/empDetailsUI.dart';

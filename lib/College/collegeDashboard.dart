@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:gradgate/Employer/EmpWid.dart';
-import 'package:gradgate/Employer/jobDetails.dart';
+import 'package:gradgate/Profile/viewProfile.dart';
 import 'package:gradgate/colors.dart';
 
-class Empdashboard extends StatefulWidget {
-  const Empdashboard({super.key});
+class Collegedashboard extends StatefulWidget {
+  const Collegedashboard({super.key});
 
   @override
-  State<Empdashboard> createState() => _EmpdashboardState();
+  State<Collegedashboard> createState() => _EmpdashboardState();
 }
 
-class _EmpdashboardState extends State<Empdashboard> {
+class _EmpdashboardState extends State<Collegedashboard> {
   TextEditingController jobname = TextEditingController();
   TextEditingController info = TextEditingController();
-  List<String> title = ["Job1", "Job2", "Job3", "Job1", "Job2", "Job3"];
-  List<String> status = [
-    "Active",
-    "In Progress",
-    "Closed",
-    "Active",
-    "In Progress",
-    "Closed"
+  List<String> name = [
+    "Stuednt 1",
+    "Student 2",
+    "student 3",
+    "Stuednt 1",
+    "Student 2",
+    "student 3"
   ];
-
+  List<String> company = [
+    "Company X",
+    "Company X",
+    "Company X",
+    "Company X",
+    "Company X",
+    "Company X"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,13 +61,13 @@ class _EmpdashboardState extends State<Empdashboard> {
                         countWidget(
                             const Color(0xffeaf2fd),
                             700,
-                            "New Candidates",
+                            "Student Candidates",
                             Icons.school_outlined,
                             const Color(0xff60a3fc)),
                         countWidget(
                             const Color(0xfffaecea),
                             700,
-                            "Candidates Hired",
+                            "Students Hired",
                             Icons.people_alt_outlined,
                             const Color(0xffeba993)),
                       ],
@@ -103,7 +109,7 @@ class _EmpdashboardState extends State<Empdashboard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text("Jobs",
+                    const Text("Students Placed",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.w900)),
 
@@ -114,24 +120,20 @@ class _EmpdashboardState extends State<Empdashboard> {
                     // Wrap ListView in Expanded to take the remaining space
                     Expanded(
                       child: ListView.builder(
-                        itemCount: title.length,
+                        itemCount: name.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
                             children: [
                               GestureDetector(
                                   onTap: () {
                                     Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Jobdetails(
-                                              title: title[index],
-                                              jobType: "jobType",
-                                              result: "result",
-                                              status: status[index],
-                                              salary: 10000)),
-                                    );
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Viewprofile(
+                                                name: name[index])));
                                   },
-                                  child: jobList(title[index], status[index])),
+                                  child: studetCollege(
+                                      name[index], company[index])),
                               const SizedBox(
                                 height: 10,
                               )
@@ -149,4 +151,29 @@ class _EmpdashboardState extends State<Empdashboard> {
       ),
     );
   }
+}
+
+Widget studetCollege(String title, String company) {
+  return Container(
+    height: 80,
+    padding: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+        color: secBg),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+        Text(
+          company,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        )
+      ],
+    ),
+  );
 }

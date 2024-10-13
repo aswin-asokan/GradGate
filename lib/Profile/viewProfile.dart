@@ -3,14 +3,16 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/variables.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+// ignore: must_be_immutable
+class Viewprofile extends StatefulWidget {
+  String name;
+  Viewprofile({super.key, required this.name});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<Viewprofile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<Viewprofile> {
   final QuillController _controller = QuillController.basic();
   @override
   Widget build(BuildContext context) {
@@ -81,25 +83,14 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Positioned(
-                      right: 20,
+                      left: 20,
                       top: 10,
                       child: IconButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/login');
+                            Navigator.pop(context);
                           },
                           icon: const Icon(
-                            Icons.logout,
-                            size: 30,
-                          ))),
-                  Positioned(
-                      right: 70,
-                      top: 10,
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/Settings');
-                          },
-                          icon: const Icon(
-                            Icons.settings_outlined,
+                            Icons.arrow_back_ios,
                             size: 30,
                           )))
                 ]),
