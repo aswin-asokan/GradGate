@@ -13,7 +13,7 @@ class ProfileImage extends StatefulWidget {
 }
 
 class _ProfileImageState extends State<ProfileImage> {
-  TextEditingController url = new TextEditingController();
+  TextEditingController url = TextEditingController();
   String? image;
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,8 @@ class _ProfileImageState extends State<ProfileImage> {
   Future openDialog() => showDialog(
       context: context,
       builder: (context) => AlertDialog(
-            title: Text("Enter URL"),
-            content: Container(
+            title: const Text("Enter URL"),
+            content: SizedBox(
               height: 100,
               width: widget.width * 0.3,
               child: customTextField("Enter URL for logo here", "URL", url,
@@ -64,7 +64,7 @@ class _ProfileImageState extends State<ProfileImage> {
                     });
                     Navigator.of(context).pop();
                   },
-                  child: Text(
+                  child: const Text(
                     "Submit",
                     style: TextStyle(color: Colors.black),
                   ))
@@ -72,6 +72,7 @@ class _ProfileImageState extends State<ProfileImage> {
           ));
 }
 
+// ignore: must_be_immutable
 class editProImg extends StatefulWidget {
   final double width;
   String path;
@@ -126,8 +127,8 @@ class _editProImgState extends State<editProImg> {
   Future openDialog() => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Enter URL"),
-          content: Container(
+          title: const Text("Enter URL"),
+          content: SizedBox(
             height: 100,
             width: widget.width * 0.3,
             child: customTextField(
@@ -146,7 +147,7 @@ class _editProImgState extends State<editProImg> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 "Submit",
                 style: TextStyle(color: Colors.black),
               ),

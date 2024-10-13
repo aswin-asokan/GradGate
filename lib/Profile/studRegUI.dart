@@ -10,6 +10,6 @@ class Studregui extends StatefulWidget {
 class _StudreguiState extends State<Studregui> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

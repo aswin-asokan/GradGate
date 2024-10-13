@@ -10,6 +10,6 @@ class ColregUI extends StatefulWidget {
 class _ColregUIState extends State<ColregUI> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

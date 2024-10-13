@@ -1,12 +1,8 @@
-import 'dart:convert'; // Ensure this import for JSON encoding/decoding
-
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/imgPicker.dart';
 import 'package:gradgate/components/widgets.dart';
-import 'package:gradgate/database/employer.dart';
-import 'package:gradgate/variables.dart';
 
 class Empregister extends StatefulWidget {
   const Empregister({super.key});
@@ -64,33 +60,7 @@ class _EmpregisterState extends State<Empregister> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          // Convert Quill document to JSON
-                          jsonAbout =
-                              jsonEncode(about.document.toDelta().toJson());
-                        });
-
-                        // Check if image URL is null
-                        String imageUrl = urlImg ??
-                            "assets/images/no-profile-picture-15258 (1).png";
-
-                        // Insert employer data into the database
-                        Employer().insertEmployer(
-                            var_mail,
-                            var_name,
-                            var_type,
-                            var_loc,
-                            jsonAbout!, // Insert JSON as 'about' description
-                            var_phone,
-                            imageUrl);
-
-                        toast(
-                            "Registration Successful",
-                            "You have successfully completed the registration process. Use the credentials to login.",
-                            context);
-                        Navigator.popAndPushNamed(context, '/login');
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
                           backgroundColor:
                               const WidgetStatePropertyAll(Colors.black),

@@ -5,7 +5,7 @@ import 'package:gradgate/colors.dart';
 class ImageSlider extends StatefulWidget {
   final double width;
 
-  ImageSlider({required this.width});
+  const ImageSlider({super.key, required this.width});
 
   @override
   _ImageSliderState createState() => _ImageSliderState();
@@ -34,7 +34,7 @@ class _ImageSliderState extends State<ImageSlider> {
   }
 
   void _startAutoSlide() {
-    _timer = Timer.periodic(Duration(seconds: 10), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 10), (Timer timer) {
       setState(() {
         currentIndex =
             (currentIndex + 1) % images.length; // Cycles through images
@@ -92,7 +92,7 @@ class _ImageSliderState extends State<ImageSlider> {
                   children: [
                     Text(
                       description[currentIndex],
-                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      style: const TextStyle(color: Colors.white, fontSize: 17),
                     ),
                   ],
                 ),

@@ -1,11 +1,7 @@
-import 'package:email_validator_flutter/email_validator_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/custPass.dart';
 import 'package:gradgate/components/widgets.dart';
-import 'package:gradgate/database/loginData.dart';
-import 'package:gradgate/variables.dart';
-import 'package:password_strength_checker/password_strength_checker.dart';
 
 class Sign extends StatefulWidget {
   const Sign({super.key});
@@ -109,73 +105,7 @@ class _SignState extends State<Sign> {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () async {
-                          String emailValue = email.text.trim().toLowerCase();
-                          String passwordValue = pass.text.trim();
-                          String userTypeValue =
-                              type; // Assuming you have user type
-                          var strength =
-                              PasswordStrength.calculate(text: passwordValue);
-                          setState(() {
-                            var_mail = emailValue.toString();
-                          });
-                          // Check if the email already exists
-                          bool exists =
-                              await Logindata().emailExists(emailValue);
-                          bool mailvalid =
-                              EmailValidatorFlutter().validateEmail(emailValue);
-                          if (!mailvalid) {
-                            toast(
-                                "Invalid mail ID",
-                                "The email you have entered is not valid. Try again.",
-                                // ignore: use_build_context_synchronously
-                                context);
-                          } else if (pass.text.trim().toString() !=
-                              confirm.text.trim().toString()) {
-                            toast(
-                                "Password mismatch",
-                                "The Passwords you have entered does not match. Try again.",
-                                // ignore: use_build_context_synchronously
-                                context);
-                          } else if (strength ==
-                              PasswordStrength.alreadyExposed) {
-                            toast(
-                                "Password not Secured",
-                                "The Passwords you have entered is already exposed",
-                                // ignore: use_build_context_synchronously
-                                context);
-                          } else if (strength == PasswordStrength.weak) {
-                            toast(
-                                "Password not Secured",
-                                "The Passwords you have entered is weak. Try a new password.",
-                                // ignore: use_build_context_synchronously
-                                context);
-                          } else {
-                            if (exists) {
-                              // Show a message indicating that the email is already taken
-                              toast(
-                                  'Email already exists',
-                                  "The email you entered already exists. Try another one!",
-                                  // ignore: use_build_context_synchronously
-                                  context);
-                            } else {
-                              // Proceed to insert the new user
-                              await Logindata().insertUser(
-                                  emailValue, passwordValue, userTypeValue);
-                              // Show a success message or navigate to another page
-                              if (userTypeValue == "Student") {
-                                Navigator.popAndPushNamed(
-                                    context, '/StudentRegister');
-                              } else if (userTypeValue == "Employer") {
-                                Navigator.popAndPushNamed(
-                                    context, '/EmployerDetails');
-                              } else {
-                                Navigator.popAndPushNamed(
-                                    context, '/CollegeRegister');
-                              }
-                            }
-                          }
-                        }, // Call the sign-up handler
+                        onPressed: () {}, // Call the sign-up handler
                         style: ButtonStyle(
                             backgroundColor:
                                 const WidgetStatePropertyAll(Colors.black),

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class LocationAutocomplete extends StatefulWidget {
   final TextEditingController locationController;
 
-  LocationAutocomplete({required this.locationController});
+  const LocationAutocomplete({super.key, required this.locationController});
 
   @override
   _LocationAutocompleteState createState() => _LocationAutocompleteState();
@@ -67,12 +67,13 @@ class _LocationAutocompleteState extends State<LocationAutocomplete> {
           decoration: InputDecoration(
               hintText: 'Enter Location',
               prefixIcon: _isLoading
-                  ? Padding(
-                      padding: const EdgeInsets.all(10.0),
+                  ? const Padding(
+                      padding: EdgeInsets.all(10.0),
                       child: CircularProgressIndicator(),
                     )
-                  : Icon(Icons.location_on),
-              hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                  : const Icon(Icons.location_on),
+              hintStyle:
+                  const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
               counterText: "",
               fillColor: textField,
               filled: true,
@@ -93,7 +94,7 @@ class _LocationAutocompleteState extends State<LocationAutocomplete> {
         if (_locationSuggestions.isNotEmpty)
           Container(
             constraints:
-                BoxConstraints(maxHeight: 200), // Limit dropdown height
+                const BoxConstraints(maxHeight: 200), // Limit dropdown height
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: _locationSuggestions.length,

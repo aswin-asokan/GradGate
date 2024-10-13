@@ -12,7 +12,7 @@ class _HomecollState extends State<Homecoll> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("College"),
+        title: const Text("College"),
       ),
     );
   }

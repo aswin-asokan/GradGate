@@ -22,7 +22,7 @@ class _CustpassState extends State<Custpass> {
       children: [
         Text(
           widget.head,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 10,

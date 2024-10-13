@@ -10,19 +10,19 @@ Widget customTextField(String hint, String head,
     children: [
       Text(
         head,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      SizedBox(
+      const SizedBox(
         height: 10,
       ),
       TextField(
         controller: controller,
         maxLength: max,
         keyboardType: type,
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+          hintStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
           counterText: "",
           fillColor: textField,
           filled: true,
@@ -97,36 +97,36 @@ void toast(String head, String desc, BuildContext context) {
     style: ToastificationStyle.flatColored,
     title: Text(
       head,
-      style: TextStyle(fontWeight: FontWeight.bold),
+      style: const TextStyle(fontWeight: FontWeight.bold),
     ),
     description: Text(desc),
     autoCloseDuration: const Duration(seconds: 5),
   );
 }
 
-Widget multilineText(QuillController _controller, String head) {
+Widget multilineText(QuillController controller, String head) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         head,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.bold),
       ),
       const SizedBox(height: 10),
       QuillSimpleToolbar(
-        controller: _controller,
+        controller: controller,
         configurations:
             const QuillSimpleToolbarConfigurations(showInlineCode: false),
       ),
       const SizedBox(height: 10),
       Container(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
             color: textField,
             borderRadius: const BorderRadius.all(Radius.circular(10))),
         height: 300, // Set a fixed height
         child: QuillEditor.basic(
-          controller: _controller,
+          controller: controller,
           configurations: const QuillEditorConfigurations(),
         ),
       ),
@@ -159,9 +159,9 @@ class _SalaryFilterState extends State<SalaryFilter> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Salary Range",
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -190,14 +190,14 @@ class _SalaryFilterState extends State<SalaryFilter> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Minimum: \₹ ${minimum.toString()}',
+                'Minimum: ₹ ${minimum.toString()}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
-                'Maximum: \₹ ${maximum.toString()}',
+                'Maximum: ₹ ${maximum.toString()}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
             ],

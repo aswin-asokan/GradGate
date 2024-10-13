@@ -4,11 +4,11 @@ import 'package:gradgate/colors.dart';
 Widget countWidget(
     Color color, int count, String title, IconData icon, Color iconColor) {
   return Container(
-    padding: EdgeInsets.all(25),
+    padding: const EdgeInsets.all(25),
     width: 350,
     height: 160,
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(10),
         ),
         color: color),
@@ -18,13 +18,13 @@ Widget countWidget(
       children: [
         Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-                padding: EdgeInsets.all(20),
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white),
                 child: Icon(
                   icon,
                   color: iconColor,
@@ -32,7 +32,7 @@ Widget countWidget(
                 )),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           width: 25,
         ),
         Column(
@@ -40,10 +40,11 @@ Widget countWidget(
           children: [
             Text(
               count.toString(),
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 50),
+              style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 50),
             ),
             Text(title,
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 17)),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 17)),
           ],
         )
       ],
@@ -62,9 +63,9 @@ Widget jobList(String title, String status) {
   }
   return Container(
     height: 80,
-    padding: EdgeInsets.all(15),
+    padding: const EdgeInsets.all(15),
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(10),
         ),
         color: secBg),
@@ -73,7 +74,7 @@ Widget jobList(String title, String status) {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         Text(
           status,

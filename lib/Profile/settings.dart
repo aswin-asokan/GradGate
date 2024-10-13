@@ -1,13 +1,10 @@
-import 'dart:convert';
-
-import 'package:email_validator_flutter/email_validator_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
+import 'package:gradgate/components/custPass.dart';
 import 'package:gradgate/components/imgPicker.dart';
 import 'package:gradgate/components/locationField.dart';
 import 'package:gradgate/components/widgets.dart';
-import 'package:gradgate/database/employer.dart';
 import 'package:gradgate/variables.dart';
 
 class Settings extends StatefulWidget {
@@ -18,17 +15,19 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  QuillController _controller = QuillController.basic();
+  final QuillController _controller = QuillController.basic();
+  TextEditingController oldPass = new TextEditingController();
+  TextEditingController newPass = new TextEditingController();
+  TextEditingController confirmPass = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    String? jsonAbout;
-    _controller.document = var_about!;
-    TextEditingController name = new TextEditingController(text: var_name);
-    TextEditingController location = new TextEditingController(text: var_loc);
-    TextEditingController type = new TextEditingController(text: var_type);
-    TextEditingController phone = new TextEditingController(text: var_phone);
-    TextEditingController mail = new TextEditingController(text: var_mail);
+    //_controller.document = var_about!;
+    TextEditingController name = TextEditingController(text: var_name);
+    TextEditingController location = TextEditingController(text: var_loc);
+    TextEditingController type = TextEditingController(text: var_type);
+    TextEditingController phone = TextEditingController(text: var_phone);
+    TextEditingController mail = TextEditingController(text: var_mail);
     return Scaffold(
       backgroundColor: secBg,
       body: SingleChildScrollView(
@@ -37,19 +36,20 @@ class _SettingsState extends State<Settings> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: 300,
                 child: Stack(children: [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       // Optional: Add box shadow for better visibility
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -74,53 +74,53 @@ class _SettingsState extends State<Settings> {
                             setState(() {});
                             Navigator.pop(context);
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_back_ios_new_outlined,
                             size: 30,
                           )))
                 ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextField(
                 controller: name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
                 ),
-                decoration: InputDecoration(border: InputBorder.none),
+                decoration: const InputDecoration(border: InputBorder.none),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               LocationAutocomplete(locationController: location),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
                 controller: type,
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-                decoration: InputDecoration(
+                style: const TextStyle(fontSize: 18, color: Colors.grey),
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(
                       Icons.info_outline,
                       color: Colors.grey,
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "About",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-              Divider(),
+              const Divider(),
               QuillSimpleToolbar(
                 controller: _controller,
                 configurations: const QuillSimpleToolbarConfigurations(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(
@@ -130,20 +130,20 @@ class _SettingsState extends State<Settings> {
                       const QuillEditorConfigurations(scrollable: false),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Text(
+              const Text(
                 "Contact us",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-              Divider(),
+              const Divider(),
               TextField(
                 controller: phone,
                 maxLength: 10,
                 keyboardType: TextInputType.phone,
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-                decoration: InputDecoration(
+                style: const TextStyle(fontSize: 18, color: Colors.grey),
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     counterText: '',
                     prefixIcon: Icon(
@@ -151,20 +151,20 @@ class _SettingsState extends State<Settings> {
                       color: Colors.grey,
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextField(
                 controller: mail,
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-                decoration: InputDecoration(
+                style: const TextStyle(fontSize: 18, color: Colors.grey),
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(
                       Icons.mail_outline,
                       color: Colors.grey,
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               SizedBox(
@@ -172,37 +172,11 @@ class _SettingsState extends State<Settings> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      bool mailvalid = EmailValidatorFlutter()
-                          .validateEmail(mail.text.toString());
-                      if (!mailvalid) {
-                        toast(
-                            "Invalid mail ID",
-                            "The email you have entered is not valid. Try again.",
-                            // ignore: use_build_context_synchronously
-                            context);
-                      } else if (name.text.isNotEmpty &&
-                          location.text.isNotEmpty &&
-                          phone.text.isNotEmpty &&
-                          type.text.isNotEmpty) {
-                        setState(() {
-                          var_mail = mail.text.toString();
-                          var_about = _controller.document;
-                          var_loc = location.text.toString();
-                          var_name = name.text.toString();
-                          var_phone = phone.text.toString();
-                          var_type = type.text.toString();
-                          jsonAbout = jsonEncode(
-                              _controller.document.toDelta().toJson());
-                        });
-                        Employer().updateEmployer(var_mail, var_name, var_type,
-                            var_loc, jsonAbout!, var_phone, urlImg!);
-                        setState(() {});
-                        toast("Changes Saved",
-                            "The changes where done Successfully", context);
-                        Navigator.pop(context);
-                      } else {
-                        toast("Field Empty", "Enter all fields", context);
-                      }
+                      toast(
+                          "Changes saved",
+                          "The changes you made have been successfully saved",
+                          context);
+                      Navigator.pop(context);
                     },
                     style: ButtonStyle(
                         backgroundColor:
@@ -216,15 +190,15 @@ class _SettingsState extends State<Settings> {
                       style: TextStyle(color: Colors.white),
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 "Additional Settings",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-              Divider(),
-              SizedBox(
+              const Divider(),
+              const SizedBox(
                 height: 25,
               ),
               Wrap(
@@ -234,7 +208,9 @@ class _SettingsState extends State<Settings> {
                       width: 300,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _showChangePasswordDialog(context);
+                        },
                         style: ButtonStyle(
                             backgroundColor:
                                 const WidgetStatePropertyAll(Colors.black),
@@ -251,7 +227,9 @@ class _SettingsState extends State<Settings> {
                       width: 300,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _showDeleteAccountDialog(context);
+                        },
                         style: ButtonStyle(
                             backgroundColor:
                                 const WidgetStatePropertyAll(Colors.redAccent),
@@ -270,6 +248,132 @@ class _SettingsState extends State<Settings> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showChangePasswordDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text(
+            "Change Password",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          content: Container(
+            width: 500,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Custpass(
+                    head: "Enter old password",
+                    hint: "Old Password",
+                    pass: oldPass),
+                const SizedBox(height: 10),
+                Custpass(
+                    head: "Enter new password",
+                    hint: "New Password",
+                    pass: newPass),
+                const SizedBox(height: 10),
+                Custpass(
+                    head: "Confirm new password",
+                    hint: "Confirm Password",
+                    pass: confirmPass),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text(
+                "Cancel",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        const WidgetStatePropertyAll(Colors.blueAccent),
+                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5))))),
+                onPressed: () {
+                  // Handle change password logic here
+                  toast("Password changed", "Your password has been updated",
+                      context);
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child:
+                    const Text("Update", style: TextStyle(color: Colors.white)),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Delete Account Confirmation Dialog
+  void _showDeleteAccountDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text(
+            "Change Password",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          content: Container(
+            width: 500,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Custpass(
+                    head: "Enter your password",
+                    hint: "Password",
+                    pass: oldPass),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text(
+                "Cancel",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        const WidgetStatePropertyAll(Colors.redAccent),
+                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5))))),
+                onPressed: () {
+                  // Handle change password logic here
+                  toast(
+                      "Account deleted",
+                      "Your account has been deleted with all its data from our database",
+                      context);
+                  Navigator.popAndPushNamed(context, '/login');
+                },
+                child:
+                    const Text("Delete", style: TextStyle(color: Colors.white)),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

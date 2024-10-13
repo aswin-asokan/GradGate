@@ -10,6 +10,6 @@ class Emptest extends StatefulWidget {
 class _EmptestState extends State<Emptest> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

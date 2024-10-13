@@ -57,14 +57,14 @@ class _EmpdetState extends State<Empdet> {
                   // Use the LocationAutocomplete widget here
                   Column(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Location",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       LocationAutocomplete(locationController: location),

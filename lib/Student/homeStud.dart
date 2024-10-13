@@ -12,7 +12,7 @@ class _HomestudState extends State<Homestud> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Student"),
+        title: const Text("Student"),
       ),
     );
   }
