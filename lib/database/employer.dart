@@ -20,20 +20,20 @@ class Employer {
       join(await getDatabasesPath(), 'employer.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE IF NOT EXISTS employer (id INTEGER PRIMARY KEY AUTOINCREMENT, mail TEXT, company_name TEXT, industry_type TEXT, location TEXT, about TEXT, phone TEXT, image TEXT,FOREIGN KEY (mail) REFERENCES users(mail) ON DELETE CASCADE)",
+          "CREATE TABLE IF NOT EXISTS employer (id INTEGER PRIMARY KEY AUTOINCREMENT, mail TEXT, company_name TEXT, industry_type TEXT, location TEXT, about TEXT, phone TEXT, image TEXT, FOREIGN KEY (mail) REFERENCES users(mail) ON DELETE CASCADE)",
         );
       },
       version: 1,
     );
   }
 
-  // Function to insert user using raw SQL query
+  // Function to insert employer using raw SQL query
   Future<void> insertEmployer(
       String email,
       String companyName,
       String industryType,
       String location,
-      String about,
+      String aboutJson,
       String phone,
       String image) async {
     final db = await database;
@@ -41,23 +41,44 @@ class Employer {
     // Using raw SQL insert command
     await db.rawInsert(
       "INSERT INTO employer (mail, company_name, industry_type, location, about, phone, image) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      [email, companyName, industryType, location, about, phone, image],
+      [email, companyName, industryType, location, aboutJson, phone, image],
     );
   }
 
-  Future<String?> getUserType(String email, String password) async {
+  Future<void> updateEmployer(
+      String email,
+      String companyName,
+      String industryType,
+      String location,
+      String aboutJson,
+      String phone,
+      String image) async {
     final db = await database;
 
-    final List<Map<String, dynamic>> result = await db.rawQuery(
-      "SELECT user_type FROM employer WHERE mail = ? AND password = ?",
-      [email, password],
+    // Using raw SQL insert command
+    await db.rawInsert(
+      "update employer set mail=?, company_name=?, industry_type=?, location=?, about=?, phone=?, image=? WHERE mail = ?",
+      [
+        email,
+        companyName,
+        industryType,
+        location,
+        aboutJson,
+        phone,
+        image,
+        email
+      ],
     );
+  }
 
-    // Check if user exists and return the user type
-    if (result.isNotEmpty) {
-      // Return the user type from the first result
-      return result.first['user_type'] as String;
-    }
-    return null;
+// Function to retrieve all employers from the database
+  Future<List<Map<String, dynamic>>> getEmployers(String email) async {
+    final db = await database;
+
+    // Using raw SQL query to retrieve all rows from the employer table
+    final List<Map<String, dynamic>> employers =
+        await db.rawQuery("SELECT * FROM employer where mail = ?", [email]);
+
+    return employers;
   }
 }
