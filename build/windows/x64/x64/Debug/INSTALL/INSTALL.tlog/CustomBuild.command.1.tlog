@@ -1,0 +1,10 @@
+^C:\USERS\BINEE\DOCUMENTS\GITHUB\GRADGATE\BUILD\WINDOWS\X64\CMAKEFILES\6DECF8CA1C39FED31FA1390A1039FDF1\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
