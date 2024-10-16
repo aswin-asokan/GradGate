@@ -12,7 +12,7 @@ class _JobsearchState extends State<Jobsearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: jobSearchWidget(),
+      body: jobSearchWidget(const Color.fromARGB(255, 232, 245, 233)),
     );
   }
 }

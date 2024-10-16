@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
+import 'package:gradgate/variables.dart';
 import 'package:toastification/toastification.dart';
 
 Widget customTextField(String hint, String head,
@@ -208,6 +209,119 @@ class _SalaryFilterState extends State<SalaryFilter> {
   }
 }
 
-Widget jobSearchWidget() {
-  return Container();
+Widget jobSearchWidget(Color color) {
+  return Container(
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(20))),
+    width: 350,
+    padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+    child: Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          width: 300,
+          height: 230,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding:
+                    EdgeInsets.only(top: 10, bottom: 10, left: 25, right: 25),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(35))),
+                child: Text(
+                  "2024-10-24",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                "Google",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Job Title",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  ),
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors
+                        .transparent, // Optional: Set a background color if needed
+                    child: ClipOval(
+                      child: urlImg ==
+                              "assets/images/no-profile-picture-15258 (1).png"
+                          ? Image.asset(
+                              "assets/images/no-profile-picture-15258 (1).png",
+                              fit: BoxFit
+                                  .cover, // Use BoxFit.cover to fill the CircleAvatar
+                              width:
+                                  200, // Set the width to be double the radius
+                              height:
+                                  200, // Set the height to be double the radius
+                            )
+                          : Image.network(
+                              urlImg,
+                              fit: BoxFit
+                                  .cover, // Use BoxFit.cover to fill the CircleAvatar
+                              width:
+                                  200, // Set the width to be double the radius
+                              height:
+                                  200, // Set the height to be double the radius
+                            ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.grey),
+                    borderRadius: BorderRadius.all(Radius.circular(35))),
+                child: Text(
+                  "Internship",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "\$25000/m",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text(
+                  "America",
+                ),
+              ],
+            ),
+          ],
+        )
+      ],
+    ),
+  );
 }
