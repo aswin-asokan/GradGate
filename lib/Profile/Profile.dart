@@ -14,7 +14,7 @@ class _ProfileState extends State<Profile> {
   QuillController _controller = QuillController.basic();
   @override
   Widget build(BuildContext context) {
-    _controller.document = var_about!;
+    _controller.document = var_about;
     return Scaffold(
       backgroundColor: secBg,
       body: SingleChildScrollView(
@@ -68,7 +68,7 @@ class _ProfileState extends State<Profile> {
                                     200, // Set the height to be double the radius
                               )
                             : Image.network(
-                                urlImg!,
+                                urlImg,
                                 fit: BoxFit
                                     .cover, // Use BoxFit.cover to fill the CircleAvatar
                                 width:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradgate/components/widgets.dart';
 
 class Jobsearch extends StatefulWidget {
   const Jobsearch({super.key});
@@ -10,6 +11,8 @@ class Jobsearch extends StatefulWidget {
 class _JobsearchState extends State<Jobsearch> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: jobSearchWidget(),
+    );
   }
 }

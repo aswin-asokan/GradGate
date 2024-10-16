@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gradgate/Employer/EmpDashboard.dart';
 import 'package:gradgate/Profile/Profile.dart';
 import 'package:gradgate/Employer/jobpost.dart';
+import 'package:gradgate/Student/jobSearch.dart';
 import 'package:gradgate/Student/studDashboard.dart';
 import 'package:gradgate/colors.dart';
 import 'package:sidebarx/sidebarx.dart';
@@ -14,7 +15,11 @@ class Homestud extends StatefulWidget {
 }
 
 class _HomestudState extends State<Homestud> {
-  List<Widget> pages = [const Studdashboard(), const Profile()];
+  List<Widget> pages = [
+    const Studdashboard(),
+    const Jobsearch(),
+    const Profile()
+  ];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {

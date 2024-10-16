@@ -60,7 +60,7 @@ class _ProfileImageState extends State<ProfileImage> {
                   onPressed: () {
                     setState(() {
                       image = url.text.toString().trim();
-                      urlImg = image;
+                      urlImg = image!;
                     });
                     Navigator.of(context).pop();
                   },
