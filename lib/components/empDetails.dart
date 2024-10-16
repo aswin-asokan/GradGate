@@ -101,13 +101,10 @@ class _EmpdetState extends State<Empdet> {
                             print(var_name);
                           });
                           
-                    Map<String, dynamic>  addResult = await Usercont().addUser(user_id,var_loc,var_name,var_phone,var_type);
-                     
-if(addResult['success'])
-{
+                   
 Navigator.popAndPushNamed(
                               context, '/EmployerRegister');
-}
+
                           
                         } else {
                           toast("Empty Fields", "Please fill all the fields",
