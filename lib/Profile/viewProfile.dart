@@ -3,18 +3,20 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/variables.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+// ignore: must_be_immutable
+class Viewprofile extends StatefulWidget {
+  String name;
+  Viewprofile({super.key, required this.name});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<Viewprofile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
-  QuillController _controller = QuillController.basic();
+class _ProfileState extends State<Viewprofile> {
+  final QuillController _controller = QuillController.basic();
   @override
   Widget build(BuildContext context) {
-    _controller.document = var_about!;
+    //_controller.document = var_about!;
     return Scaffold(
       backgroundColor: secBg,
       body: SingleChildScrollView(
@@ -23,19 +25,20 @@ class _ProfileState extends State<Profile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: 300,
                 child: Stack(children: [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       // Optional: Add box shadow for better visibility
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -80,58 +83,43 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Positioned(
-                      right: 20,
+                      left: 20,
                       top: 10,
                       child: IconButton(
                           onPressed: () {
-                            Navigator.popAndPushNamed(context, '/login');
+                            Navigator.pop(context);
                           },
                           icon: const Icon(
-                            Icons.logout,
-                            size: 30,
-                          ))),
-                  Positioned(
-                      right: 70,
-                      top: 10,
-                      child: IconButton(
-                          onPressed: () {
-                            if (user_type == "Student") {
-                              Navigator.pushNamed(context, '/studSettings');
-                            }
-                            if (user_type == "Employer") {
-                              Navigator.pushNamed(context, '/Settings');
-                            }
-                          },
-                          icon: Icon(
-                            Icons.settings_outlined,
+                            Icons.arrow_back_ios,
                             size: 30,
                           )))
                 ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 var_name,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.location_on_outlined,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   // Wrap the Text in Flexible to allow it to take available space
                   Flexible(
                     child: Text(
                       var_loc,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 18 // Responsive font size
                           ),
@@ -143,32 +131,32 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.info_outline,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     var_type,
-                    style: TextStyle(color: Colors.grey, fontSize: 18),
+                    style: const TextStyle(color: Colors.grey, fontSize: 18),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "About",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-              Divider(),
+              const Divider(),
               Container(
                 child: QuillEditor.basic(
                   controller: _controller,
@@ -176,44 +164,44 @@ class _ProfileState extends State<Profile> {
                       const QuillEditorConfigurations(scrollable: false),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Contact us",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
-              Divider(),
+              const Divider(),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.phone_outlined,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     var_phone,
-                    style: TextStyle(color: Colors.grey, fontSize: 18),
+                    style: const TextStyle(color: Colors.grey, fontSize: 18),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.mail_outline,
                     color: Colors.grey,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     var_mail,
-                    style: TextStyle(color: Colors.grey, fontSize: 18),
+                    style: const TextStyle(color: Colors.grey, fontSize: 18),
                   )
                 ],
               ),

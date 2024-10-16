@@ -47,10 +47,6 @@ class MyApp extends StatelessWidget {
                 GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true),
-<<<<<<< Updated upstream
-        home: const LoginUI());
-=======
         home: const Homestud());
->>>>>>> Stashed changes
   }
 }

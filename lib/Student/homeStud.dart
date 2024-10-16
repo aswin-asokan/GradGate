@@ -30,11 +30,6 @@ class _HomestudState extends State<Homestud> {
       });
     }
     return Scaffold(
-<<<<<<< Updated upstream
-      appBar: AppBar(
-        title: Text("Student"),
-=======
-      backgroundColor: mainBg,
       body: Row(
         children: [
           SidebarX(
@@ -120,7 +115,6 @@ class _HomestudState extends State<Homestud> {
           ),
           Expanded(child: pages[selectedIndex])
         ],
->>>>>>> Stashed changes
       ),
     );
   }
