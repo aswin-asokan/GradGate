@@ -764,12 +764,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "sqflite",
-      "rootUri": "file:///home/aswin/.pub-cache/hosted/pub.dev/sqflite-2.3.3+2",
-      "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
       "name": "sqflite_common",
       "rootUri": "file:///home/aswin/.pub-cache/hosted/pub.dev/sqflite_common-2.5.4+4",
       "packageUri": "lib/",
@@ -968,7 +962,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-05T15:26:33.511476Z",
+  "generated": "2024-10-16T04:58:33.237444Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///home/aswin/development/flutter",

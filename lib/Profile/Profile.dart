@@ -84,7 +84,27 @@ class _ProfileState extends State<Profile> {
                       top: 10,
                       child: IconButton(
                           onPressed: () {
+<<<<<<< Updated upstream
                             Navigator.pushNamed(context, '/Settings');
+=======
+                            Navigator.popAndPushNamed(context, '/login');
+                          },
+                          icon: const Icon(
+                            Icons.logout,
+                            size: 30,
+                          ))),
+                  Positioned(
+                      right: 70,
+                      top: 10,
+                      child: IconButton(
+                          onPressed: () {
+                            if (user_type == "Student") {
+                              Navigator.pushNamed(context, '/studSettings');
+                            }
+                            if (user_type == "Employer") {
+                              Navigator.pushNamed(context, '/Settings');
+                            }
+>>>>>>> Stashed changes
                           },
                           icon: Icon(
                             Icons.settings_outlined,

@@ -207,3 +207,7 @@ class _SalaryFilterState extends State<SalaryFilter> {
     );
   }
 }
+
+Widget jobSearchWidget() {
+  return Container();
+}

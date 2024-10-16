@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:gradgate/College/colDetails.dart';
 import 'package:gradgate/colors.dart';
-import 'package:gradgate/components/empDetails.dart';
 import 'package:gradgate/components/imageSlide.dart';
 
-class EmpDetailsUI extends StatefulWidget {
-  const EmpDetailsUI({super.key});
+class ColregUI extends StatefulWidget {
+  const ColregUI({super.key});
 
   @override
-  State<EmpDetailsUI> createState() => _EmpDetailsUIState();
+  State<ColregUI> createState() => _ColregUIState();
 }
 
-class _EmpDetailsUIState extends State<EmpDetailsUI> {
+class _ColregUIState extends State<ColregUI> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: background,
       body: width < 800
-          ? const Empdet()
+          ? const Coldetails()
           : Row(
-              children: [ImageSlider(width: width), const Empdet()],
+              children: [ImageSlider(width: width), const Coldetails()],
             ),
     );
   }

@@ -51,6 +51,7 @@ dependencies:
   badges: ^3.1.2
   simple_sidebar: ^0.0.8
   flutter_quill: ^10.8.2
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
   flutter_test:

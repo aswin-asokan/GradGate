@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gradgate/College/colSettings.dart';
 import 'package:gradgate/College/homeColl.dart';
 import 'package:gradgate/Employer/homeEmp.dart';
-import 'package:gradgate/Profile/colRegUI.dart';
-import 'package:gradgate/Profile/empDetailsUI.dart';
-import 'package:gradgate/Profile/empRegUI.dart';
+import 'package:gradgate/College/colRegUI.dart';
+import 'package:gradgate/Employer/empDetailsUI.dart';
+import 'package:gradgate/Employer/empRegUI.dart';
 import 'package:gradgate/Profile/loginUI.dart';
 import 'package:gradgate/Profile/settings.dart';
 import 'package:gradgate/Profile/signupUI.dart';
-import 'package:gradgate/Profile/studRegUI.dart';
+import 'package:gradgate/Student/studDetails.dart';
+import 'package:gradgate/Student/studDetailsUI.dart';
+import 'package:gradgate/Student/studRegUI.dart';
 import 'package:gradgate/Student/homeStud.dart';
+import 'package:gradgate/Student/studSettings.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {
@@ -34,13 +38,19 @@ class MyApp extends StatelessWidget {
           '/CollegeRegister': (context) => const ColregUI(),
           '/EmployerRegister': (context) => const Empregui(),
           '/EmployerDetails': (context) => const EmpDetailsUI(),
-          '/Settings': (context) => const Settings()
+          '/Settings': (context) => const Settings(),
+          '/colSettings': (context) => const Colsettings(),
+          '/studSettings': (context) => const Studsettings()
         },
         theme: ThemeData(
             textTheme:
                 GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true),
+<<<<<<< Updated upstream
         home: const LoginUI());
+=======
+        home: const Homestud());
+>>>>>>> Stashed changes
   }
 }

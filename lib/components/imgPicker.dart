@@ -52,8 +52,8 @@ class _ProfileImageState extends State<ProfileImage> {
             content: Container(
               height: 100,
               width: widget.width * 0.3,
-              child: customTextField("Enter URL for logo here", "URL", url,
-                  TextInputType.text, null),
+              child: customTextField(
+                  "Enter URL here", "URL", url, TextInputType.text, null),
             ),
             actions: [
               TextButton(

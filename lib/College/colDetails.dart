@@ -4,14 +4,14 @@ import 'package:gradgate/components/locationField.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
 
-class Empdet extends StatefulWidget {
-  const Empdet({super.key});
+class Coldetails extends StatefulWidget {
+  const Coldetails({super.key});
 
   @override
-  State<Empdet> createState() => _EmpdetState();
+  State<Coldetails> createState() => _ColdetailsState();
 }
 
-class _EmpdetState extends State<Empdet> {
+class _ColdetailsState extends State<Coldetails> {
   TextEditingController name = TextEditingController();
   TextEditingController location =
       TextEditingController(); // Controller for location
@@ -44,35 +44,32 @@ class _EmpdetState extends State<Empdet> {
                   ),
                   const SizedBox(height: 10),
                   const Text(
-                    "Enter your Company details to continue",
+                    "Enter your College details to continue",
                     textAlign: TextAlign.center,
                   ),
 
                   const SizedBox(height: 50),
 
-                  customTextField("Enter Company name", "Company name", name,
+                  customTextField("Enter College name", "College name", name,
                       TextInputType.name, null),
                   const SizedBox(height: 20),
 
                   // Use the LocationAutocomplete widget here
                   Column(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Location",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       LocationAutocomplete(locationController: location),
                     ],
                   ),
-                  const SizedBox(height: 20),
-                  customTextField("Enter Industry Type", "Industry Type", type,
-                      TextInputType.text, null),
                   const SizedBox(height: 20),
                   customTextField("Enter Phone number", "Phone number", phone,
                       TextInputType.number, 10),
@@ -94,8 +91,6 @@ class _EmpdetState extends State<Empdet> {
                             var_type = type.text.toString();
                             print(var_name);
                           });
-                          Navigator.popAndPushNamed(
-                              context, '/EmployerRegister');
                         } else {
                           toast("Empty Fields", "Please fill all the fields",
                               context);
@@ -111,7 +106,7 @@ class _EmpdetState extends State<Empdet> {
                         ),
                       ),
                       child: const Text(
-                        "Continue",
+                        "Register",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),

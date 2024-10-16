@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/components/imageSlide.dart';
-import 'package:gradgate/components/empRegister.dart';
+import 'package:gradgate/Employer/empRegister.dart';
 
 class Empregui extends StatefulWidget {
   const Empregui({super.key});
