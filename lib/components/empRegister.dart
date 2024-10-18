@@ -71,22 +71,22 @@ class _EmpregisterState extends State<Empregister> {
                         SharedPreferences prefs = await SharedPreferences.getInstance();
 
                            String? user_id = prefs.getString('userId') ??'no value';
+                            
                             var jsonAbout = await  jsonEncode(about.document.toDelta().toJson());
-
                         setState(() {
                           // Convert Quill document to JSON
                          
-                            
-
+                             urlImg = urlImg ??
+                            "assets/images/no-profile-picture-15258 (1).png";
+                      
                         });
 
                         // Check if image URL is null
-                        String imageUrl = urlImg ??
-                            "assets/images/no-profile-picture-15258 (1).png";
+                        
 
                         // Insert employer data into the database
                       
-            Map<String, dynamic>  addResult = await Usercont().addUser(user_id,var_loc,var_name,var_phone,var_type,jsonAbout,imageUrl);
+            Map<String, dynamic>  addResult = await Usercont().addUser(user_id,jsonAbout);
                      
           if(addResult['success'])
         {

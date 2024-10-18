@@ -46,6 +46,9 @@ dependencies:
   awesome_place_search: ^2.0.0
   image_picker: ^1.1.2
   file_picker: ^8.1.2
+  flutter_quill: ^10.8.2
+  shared_preferences: ^2.3.2
+  sidebarx: ^0.17.1
 
 dev_dependencies:
   flutter_test:

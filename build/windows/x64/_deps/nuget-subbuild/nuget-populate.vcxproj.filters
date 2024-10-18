@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-copyfile.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\96f975a17a93ad9ff4b25af8fdfcb726\nuget-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\c2fe4ca98036bfa3c2315c05361ddae3\nuget-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\91de93d066c800d575b61760a19e10d8\nuget-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\pjt\GradGate\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\nuget-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6EA6F383-D39D-34EF-9CA8-D6ED047AC789}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

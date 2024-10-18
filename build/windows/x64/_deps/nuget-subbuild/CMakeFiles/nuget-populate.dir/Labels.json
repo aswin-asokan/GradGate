@@ -1,0 +1,49 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/nuget-populate"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/91de93d066c800d575b61760a19e10d8/nuget-populate.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/c2fe4ca98036bfa3c2315c05361ddae3/nuget-populate-complete.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-build.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-configure.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-copyfile.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-download.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-install.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-patch.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-test.rule"
+		},
+		{
+			"file" : "C:/pjt/GradGate/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/96f975a17a93ad9ff4b25af8fdfcb726/nuget-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"nuget-populate"
+		],
+		"name" : "nuget-populate"
+	}
+}

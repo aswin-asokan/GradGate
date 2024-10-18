@@ -53,12 +53,14 @@ Widget countWidget(
 
 Widget jobList(String title, String status) {
   Color color;
-  if (status == "Active") {
+  if (status == "Active" || status == "Selected") {
     color = Colors.green;
-  } else if (status == "In Progress") {
+  } else if (status == "In Progress" || status == "Applied") {
     color = Colors.blue;
-  } else {
+  } else if (status == "Closed" || status == "Rejected") {
     color = Colors.red;
+  } else {
+    color = Colors.orangeAccent;
   }
   return Container(
     height: 80,

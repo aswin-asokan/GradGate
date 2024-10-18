@@ -31,9 +31,11 @@ class _LogState extends State<Log> {
     toast("Empty fields", "Enter all fields.", context);
     return; // Exit if fields are empty
   }
-
+   setState(() {
+          var_mail = email.text;
+        });
   // Call verifyUser
-  Map<String, dynamic> loginResult = await AuthService().verifyUser(email.text, pass.text);
+  Map<String, dynamic> loginResult = await AuthService().verifyUser( pass.text);
 
   if (loginResult['success'] == true) {
     SharedPreferences prefs = await SharedPreferences.getInstance();

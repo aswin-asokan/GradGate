@@ -1,16 +1,18 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:gradgate/variables.dart';
+
 
 class AuthService {
   // Function to verify user credentials
-  Future<Map<String, dynamic>> verifyUser(String email, String password) async {
+  Future<Map<String, dynamic>> verifyUser(String password) async {
     final String url = 'http://localhost/Flutter/Api/loginDet.php?action=login'; // Replace with your PHP script URL
 
     try {
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'mail': email,
+          'mail': var_mail,
           'password': password,
         },
       );
@@ -28,16 +30,16 @@ class AuthService {
   }
  
   // Function to verify user credentials
-  Future<Map<String, dynamic>> signUp(String email, String password,String type) async {
+  Future<Map<String, dynamic>> signUp(String password) async {
     final String url = 'http://localhost/Flutter/Api/loginDet.php?action=signup'; // Replace with your PHP script URL
 
     try {
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'mail': email,
+          'mail': var_mail,
           'password': password,
-          'type':type,
+          'type': var_type,
         },
       );
 

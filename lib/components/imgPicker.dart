@@ -59,8 +59,8 @@ class _ProfileImageState extends State<ProfileImage> {
               TextButton(
                   onPressed: () {
                     setState(() {
-                      image = url.text.toString().trim();
-                      urlImg = image;
+                    //  image = url.text.toString().trim();
+                      urlImg = url.text.toString().trim();
                     });
                     Navigator.of(context).pop();
                   },

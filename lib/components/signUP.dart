@@ -124,10 +124,11 @@ class _SignState extends State<Sign> {
                               PasswordStrength.calculate(text: passwordValue);
                           setState(() {
                             var_mail = emailValue.toString();
+                            var_type = userTypeValue;
                           });
                           // Check if the email already exists
                           
-                          Map<String, dynamic> loginResult = await AuthService().verifyUser(email.text, pass.text);
+                          Map<String, dynamic> loginResult = await AuthService().verifyUser( pass.text);
                            
                           bool exists =loginResult['success'];
                           bool mailvalid =
@@ -169,7 +170,7 @@ class _SignState extends State<Sign> {
                             } else {
                               // Proceed to insert the new user
 
-                              Map<String, dynamic>  signupResult = await AuthService().signUp(emailValue, passwordValue, userTypeValue);
+                              Map<String, dynamic>  signupResult = await AuthService().signUp(passwordValue);
                                if (signupResult['success'] == true) {
                              SharedPreferences prefs = await SharedPreferences.getInstance();
                             // Retrieve user type and ID

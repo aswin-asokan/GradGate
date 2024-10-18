@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/variables.dart';
+import 'dart:convert'; // Ensure this import for JSON encoding/decoding
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -12,9 +13,10 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   QuillController _controller = QuillController.basic();
+  
   @override
   Widget build(BuildContext context) {
-    _controller.document = var_about!;
+    _controller.document = var_aboutJ;
     return Scaffold(
       backgroundColor: secBg,
       body: SingleChildScrollView(
@@ -68,7 +70,7 @@ class _ProfileState extends State<Profile> {
                                     200, // Set the height to be double the radius
                               )
                             : Image.network(
-                                urlImg!,
+                                urlImg,
                                 fit: BoxFit
                                     .cover, // Use BoxFit.cover to fill the CircleAvatar
                                 width:
@@ -84,7 +86,23 @@ class _ProfileState extends State<Profile> {
                       top: 10,
                       child: IconButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/Settings');
+                            Navigator.popAndPushNamed(context, '/login');
+                          },
+                          icon: const Icon(
+                            Icons.logout,
+                            size: 30,
+                          ))),
+                  Positioned(
+                      right: 70,
+                      top: 10,
+                      child: IconButton(
+                          onPressed: () {
+                            if (user_type == "Student") {
+                              Navigator.pushNamed(context, '/studSettings');
+                            }
+                            if (user_type == "Employer") {
+                              Navigator.pushNamed(context, '/Settings');
+                            }
                           },
                           icon: Icon(
                             Icons.settings_outlined,

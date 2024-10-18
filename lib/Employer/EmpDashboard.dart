@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/Employer/EmpWid.dart';
+import 'package:gradgate/Employer/jobDetails.dart';
 import 'package:gradgate/colors.dart';
-import 'package:gradgate/components/widgets.dart';
+import 'package:gradgate/Controller/userCont.dart';
 
 class Empdashboard extends StatefulWidget {
   const Empdashboard({super.key});
@@ -12,70 +12,71 @@ class Empdashboard extends StatefulWidget {
 }
 
 class _EmpdashboardState extends State<Empdashboard> {
-  TextEditingController jobname = new TextEditingController();
-  TextEditingController info = new TextEditingController();
-  List<String> title = ["Job1", "Job2", "Job3"];
-  List<String> status = ["Active", "In Progress", "Closed"];
+  late Future<Map<String, dynamic>> futureJobList;
+
+  @override
+  void initState() {
+    super.initState();
+    futureJobList = Usercont().jobList(); // Call the jobList function from the controller
+  }
+
+  TextEditingController jobname = TextEditingController();
+  TextEditingController info = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: secBg,
       body: Padding(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Dashboard",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               Container(
-                padding: EdgeInsets.all(25),
-                decoration: BoxDecoration(
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(25),
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.white),
-                child: Column(
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 20,
                   children: [
-                    Wrap(
-                      spacing: 25,
-                      runSpacing: 25,
-                      children: [
-                        countWidget(Color(0xffeaf2fd), 700, "New Candidates",
-                            Icons.school_outlined, Color(0xff60a3fc)),
-                        countWidget(Color(0xfffaecea), 700, "Candidates Hired",
-                            Icons.people_alt_outlined, Color(0xffeba993)),
-                      ],
+                    countWidget(const Color(0xffeaf2fd), 700, "New Candidates",
+                        Icons.school_outlined, const Color(0xff60a3fc)),
+                    countWidget(
+                      const Color(0xfffaecea),
+                      700,
+                      "Candidates Hired",
+                      Icons.people_alt_outlined,
+                      const Color(0xffeba993),
                     ),
-                    SizedBox(
-                      height: 25,
+                    countWidget(
+                      const Color.fromARGB(255, 200, 222, 217),
+                      700,
+                      "Active Jobs",
+                      Icons.work_outline_outlined,
+                      const Color(0xff446d67),
                     ),
-                    Wrap(
-                      spacing: 25,
-                      runSpacing: 25,
-                      children: [
-                        countWidget(
-                            Color.fromARGB(255, 200, 222, 217),
-                            700,
-                            "Active Jobs",
-                            Icons.work_outline_outlined,
-                            Color(0xff446d67)),
-                        countWidget(Color(0xfff9f4ed), 700, "Average Salary",
-                            Icons.currency_rupee, Color(0xfff29f50)),
-                      ],
-                    ),
+                    countWidget(const Color(0xfff9f4ed), 700, "Average Salary",
+                        Icons.currency_rupee, const Color(0xfff29f50)),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Container(
-                height: 500, // Outer container height
+                height: 550, // Outer container height
                 padding: const EdgeInsets.all(25),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -92,19 +93,61 @@ class _EmpdashboardState extends State<Empdashboard> {
                         height:
                             20), // Adding some space between the text and list
 
-                    // Wrap ListView in Expanded to take the remaining space
+                    // Use FutureBuilder to wait for data before building the list
                     Expanded(
-                      child: ListView.builder(
-                        itemCount: title.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Column(
-                            children: [
-                              jobList(title[index], status[index]),
-                              SizedBox(
-                                height: 10,
-                              )
-                            ],
-                          );
+                      child: FutureBuilder<Map<String, dynamic>>(
+                        future: futureJobList,
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            // While waiting for the data, show a loading indicator
+                            return const Center(child: CircularProgressIndicator());
+                          } else if (snapshot.hasError) {
+                            // If there's an error, display an error message
+                            return Center(child: Text('Error: ${snapshot.error}'));
+                          } else if (snapshot.hasData) {
+                            // Assuming 'jobs' is a list in the response data
+                            List<dynamic> jobs = snapshot.data!['jobDet'];
+
+                            // Build the ListView with dynamic data
+                            return ListView.builder(
+                              itemCount: jobs.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                var job = jobs[index];
+                                return Column(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Jobdetails(
+                                              title: job['job_title'],
+                                              jobType: job['job_type'],
+                                              result: job['requirements'],
+                                              status: job['status'],
+                                              salary: job['salary'],
+                                              about: job['	job_description']
+
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: jobList(
+                                        job['job_title'],
+                                        job['status'],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          } else {
+                            // In case there's no data
+                            return const Center(child: Text('No jobs found.'));
+                          }
                         },
                       ),
                     ),

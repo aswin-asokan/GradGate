@@ -4,6 +4,8 @@ import 'package:gradgate/Profile/Profile.dart';
 import 'package:gradgate/Employer/jobpost.dart';
 import 'package:gradgate/colors.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:gradgate/variables.dart';
+
 
 class Homeemp extends StatefulWidget {
   const Homeemp({super.key});
@@ -108,6 +110,11 @@ class _HomeempState extends State<Homeemp> {
                   icon: Icons.person_outline,
                   label: '  Profile',
                   onTap: () => setState(() {
+                    var_name = 'Comapny1';
+                    var_loc = "";
+                    var_phone = "";
+                    var_type = "";
+                    var_about;
                         selectedIndex = 2;
                       })),
             ],
