@@ -42,3 +42,6 @@
 <img src="https://github.com/user-attachments/assets/46388f71-fda8-481f-800b-410f4872a25c" alt="college-dashboard" height="500"/>
 
 </div>
+
+## References:
+[Job portal UI by Ronas IT | UI/UX Team](https://dribbble.com/shots/21587286-Job-Search-Platform)
