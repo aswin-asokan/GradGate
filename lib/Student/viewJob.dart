@@ -1,57 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:flutter_quill/quill_delta.dart';
 import 'package:gradgate/Profile/viewProfile.dart';
 import 'package:gradgate/colors.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
-import 'dart:convert'; // Ensure this import for JSON encoding/decoding
 import 'package:gradgate/Controller/studCon.dart';
-
 
 // ignore: must_be_immutable
 class Viewjob extends StatefulWidget {
   //select * from jobs where title=jobtitle
-String imgLink;
-String jobTitle;
-String jobCompany;
-String jobLocation ;
-String lastDate;
-String jobSalary ;
-String jobType;
-String jobAbout;
-String jobId;
+  String imgLink;
+  String jobTitle;
+  String jobCompany;
+  String jobLocation;
+  String lastDate;
+  String jobSalary;
+  String jobType;
+  String jobAbout;
+  String jobId;
 
-
-
-                              
-  Viewjob(
-      {super.key,
-      required this.jobTitle,
-      required this.jobCompany,
-      required this.jobType,
-      required this.jobLocation,
-      required this.lastDate,
-      required this.imgLink,
-      required this.jobAbout,
-      required this.jobSalary,
-      required this.jobId,});
+  Viewjob({
+    super.key,
+    required this.jobTitle,
+    required this.jobCompany,
+    required this.jobType,
+    required this.jobLocation,
+    required this.lastDate,
+    required this.imgLink,
+    required this.jobAbout,
+    required this.jobSalary,
+    required this.jobId,
+  });
 
   @override
   State<Viewjob> createState() => _ViewjobState();
-   }
-
-
+}
 
 class _ViewjobState extends State<Viewjob> {
-
   //late quill.Document aboutDocument;
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-      
       backgroundColor: secBg,
       body: SingleChildScrollView(
         child: Padding(
@@ -66,27 +56,27 @@ class _ViewjobState extends State<Viewjob> {
                     height: 150,
                     width: 150,
                     child: ClipOval(
-                        child: widget.imgLink ==
-                                "assets/images/no-profile-picture-15258 (1).png"
-                            ? Image.asset(
-                                "assets/images/no-profile-picture-15258 (1).png",
-                                fit: BoxFit
-                                    .cover, // Use BoxFit.cover to fill the CircleAvatar
-                                width:
-                                    200, // Set the width to be double the radius
-                                height:
-                                    200, // Set the height to be double the radius
-                              )
-                            : Image.network(
-                                widget.imgLink,
-                                fit: BoxFit
-                                    .cover, // Use BoxFit.cover to fill the CircleAvatar
-                                width:
-                                    200, // Set the width to be double the radius
-                                height:
-                                    200, // Set the height to be double the radius
-                              ),
-                      ),
+                      child: widget.imgLink ==
+                              "assets/images/no-profile-picture-15258 (1).png"
+                          ? Image.asset(
+                              "assets/images/no-profile-picture-15258 (1).png",
+                              fit: BoxFit
+                                  .cover, // Use BoxFit.cover to fill the CircleAvatar
+                              width:
+                                  200, // Set the width to be double the radius
+                              height:
+                                  200, // Set the height to be double the radius
+                            )
+                          : Image.network(
+                              widget.imgLink,
+                              fit: BoxFit
+                                  .cover, // Use BoxFit.cover to fill the CircleAvatar
+                              width:
+                                  200, // Set the width to be double the radius
+                              height:
+                                  200, // Set the height to be double the radius
+                            ),
+                    ),
                   ),
                   const SizedBox(
                     width: 25,
@@ -99,29 +89,29 @@ class _ViewjobState extends State<Viewjob> {
                         Row(
                           children: [
                             Text(
-                          "${widget.jobTitle}: ",
+                              "${widget.jobTitle}: ",
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 25),
                             ),
                             TextButton(
                                 onPressed: () {
-                                    //final List<dynamic> aboutJson  = jsonDecode(stud['about']);
+                                  //final List<dynamic> aboutJson  = jsonDecode(stud['about']);
 
-           //aboutDocument = quill.Document.fromJson(aboutJson);
+                                  //aboutDocument = quill.Document.fromJson(aboutJson);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => Viewprofile(
-                                                        
-                                          name :"name",
-                                         userType:"Student", 
-                                        imgLink:"assets/images/no-profile-picture-15258 (1).png",
-                                        nameOrCompany : "Google",
-                                        depOrType : "Software",
-                                        locationOrCollege : "America",
-                                        mail : "mail",
-                                        phone :"3698",
-                                        about : Document(),
+                                              name: "name",
+                                              userType: "Student",
+                                              imgLink:
+                                                  "assets/images/no-profile-picture-15258 (1).png",
+                                              nameOrCompany: "Google",
+                                              depOrType: "Software",
+                                              locationOrCollege: "America",
+                                              mail: "mail",
+                                              phone: "3698",
+                                              about: Document(),
                                             )),
                                   );
                                 },
@@ -153,29 +143,24 @@ class _ViewjobState extends State<Viewjob> {
                                   : 300, // Adjust button width based on screen size
                               height: 50,
                               child: ElevatedButton(
-                                onPressed: ()async {
-                                    setState(() {
-                                       apply_job_id = widget.jobId;
-                                        });
-                                    Map<String, dynamic>  addResult = await studCont().applyJob();
-                                    if(addResult['success'])
-                                 {
-                
-                                  toast("Applied",
-                                      "You have applied for the job.", context);}
-                                   else
-                                 {
-                
-                                toast("Already Applied",
-                                      "You have already applied for the job.", context);
-                                      
-                                }
-                                     
-                     
-                                 
-                                      
+                                onPressed: () async {
+                                  setState(() {
+                                    apply_job_id = widget.jobId;
+                                  });
+                                  Map<String, dynamic> addResult =
+                                      await studCont().applyJob();
+                                  if (addResult['success']) {
+                                    toast(
+                                        "Applied",
+                                        "You have applied for the job.",
+                                        context);
+                                  } else {
+                                    toast(
+                                        "Already Applied",
+                                        "You have already applied for the job.",
+                                        context);
+                                  }
                                 },
-                                
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor:
                                       const Color.fromARGB(255, 100, 181, 246),
@@ -242,8 +227,8 @@ class _ViewjobState extends State<Viewjob> {
                         borderRadius: BorderRadius.all(Radius.circular(35))),
                     child: Text(
                       widget.lastDate,
-                      style:
-                          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                   Container(
@@ -253,9 +238,9 @@ class _ViewjobState extends State<Viewjob> {
                         color: Color(0xffffe1cc),
                         borderRadius: BorderRadius.all(Radius.circular(35))),
                     child: Text(
-                    "Salary: \$${widget.jobSalary}/m",
-                      style:
-                          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      "Salary: \$${widget.jobSalary}/m",
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                   Container(
@@ -266,8 +251,8 @@ class _ViewjobState extends State<Viewjob> {
                         borderRadius: BorderRadius.all(Radius.circular(35))),
                     child: Text(
                       widget.jobType,
-                      style:
-                          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
@@ -283,12 +268,14 @@ class _ViewjobState extends State<Viewjob> {
                 height: 15,
               ),
               Container(
- child:  Text(
-                widget.jobAbout,
-                style: TextStyle(fontSize: 18,color: const Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.w600),
+                child: Text(
+                  widget.jobAbout,
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontWeight: FontWeight.w600),
+                ),
               ),
-
-                  ),
             ],
           ),
         ),

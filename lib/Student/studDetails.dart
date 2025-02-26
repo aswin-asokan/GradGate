@@ -4,9 +4,7 @@ import 'package:gradgate/colors.dart';
 import 'package:gradgate/components/collSelect.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gradgate/collegeVar.dart';
-
 
 class Studdetails extends StatefulWidget {
   const Studdetails({super.key});
@@ -16,7 +14,6 @@ class Studdetails extends StatefulWidget {
 }
 
 class _StuddetailsState extends State<Studdetails> {
-  
   TextEditingController name = TextEditingController();
   TextEditingController location =
       TextEditingController(); // Controller for location
@@ -121,16 +118,14 @@ class _StuddetailsState extends State<Studdetails> {
                     child: ElevatedButton(
                       onPressed: () async {
                         if (name.text.isNotEmpty && phone.text.isNotEmpty) {
-                           SharedPreferences prefs = await SharedPreferences.getInstance();
-                           String? user_id = prefs.getString('userId') ??'no value';
                           setState(() {
                             stuDepartment = selectedDepartment;
-                           // var_loc = location.text.toString();
+                            // var_loc = location.text.toString();
                             var_name = name.text.toString();
                             var_phone = phone.text.toString();
-                            
                           });
-                          Navigator.popAndPushNamed(context, '/StudentRegister');
+                          Navigator.popAndPushNamed(
+                              context, '/StudentRegister');
                         } else {
                           toast("Empty Fields", "Please fill all the fields",
                               context);

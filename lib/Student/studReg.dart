@@ -8,8 +8,6 @@ import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
 import 'package:gradgate/Controller/studCon.dart';
 
-
-
 class Studreg extends StatefulWidget {
   const Studreg({super.key});
 
@@ -65,26 +63,23 @@ class _StudregState extends State<Studreg> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () async{
-                         
+                      onPressed: () async {
                         setState(() {
                           // Convert Quill document to JSON
-                          aboutComp = jsonEncode(about.document.toDelta().toJson());
-                               urlImg = urlImg ??
-                            "assets/images/no-profile-picture-15258 (1).png";
-                      
+                          aboutComp =
+                              jsonEncode(about.document.toDelta().toJson());
                         });
 
-                        Map<String, dynamic>  addResult = await studCont().addStud();
-                     
-          if(addResult['success'])
-        {
-                        toast(
-                            "Registration Successful",
-                            "You have successfully completed the registration process. Use the credentials to login.",
-                            context);
-                        Navigator.popAndPushNamed(context, '/login');
-        }
+                        Map<String, dynamic> addResult =
+                            await studCont().addStud();
+
+                        if (addResult['success']) {
+                          toast(
+                              "Registration Successful",
+                              "You have successfully completed the registration process. Use the credentials to login.",
+                              context);
+                          Navigator.popAndPushNamed(context, '/login');
+                        }
                       },
                       style: ButtonStyle(
                           backgroundColor:
