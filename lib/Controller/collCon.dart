@@ -1,34 +1,28 @@
 import 'dart:convert';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gradgate/variables.dart';
 
-
-
-
-
 class collCont {
-  
   // Function to add Employer
   Future<Map<String, dynamic>> addColl() async {
-    final String url = 'http://localhost/Flutter/Api/college.php?action=addColl'; // Replace with your PHP script URL
+    final String url =
+        'http://localhost/Flutter/Api/college.php?action=addColl'; // Replace with your PHP script URL
 
     try {
-       SharedPreferences prefs = await SharedPreferences.getInstance();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
 
-       String? user_id = prefs.getString('userId') ??'no value';
-      
+      String? user_id = prefs.getString('userId') ?? 'no value';
+
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'user_id' : user_id,
+          'user_id': user_id,
           'var_name': var_name,
           'phone': var_phone,
           'location': var_loc,
         },
       );
-      
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body); // Decode the response
@@ -41,13 +35,12 @@ class collCont {
       return {'success': false}; // Return false on exception
     }
   }
- 
-  
+
   // Function to retrieve jobList
   Future<Map<String, dynamic>> stdList() async {
-
-     try {
-       final String url = 'http://localhost/Flutter/Api/college.php?action=stdList'; 
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/college.php?action=stdList';
       // Get user ID from shared preferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId') ?? 'no value';
@@ -79,14 +72,13 @@ class collCont {
       print("Error: $e");
       return {'stdData': []}; // Return an empty list on exception
     }
-   
   }
-  
-  // retrieve college details
-   Future<Map<String, dynamic>> collDetails() async {
 
-     try {
-       final String url = 'http://localhost/Flutter/Api/college.php?action=collDet'; 
+  // retrieve college details
+  Future<Map<String, dynamic>> collDetails() async {
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/college.php?action=collDet';
       // Get user ID from shared preferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId') ?? 'no value';
@@ -109,7 +101,5 @@ class collCont {
       print("Error: $e");
       return {'success': false}; // Return false on exception
     }
-  
   }
-  }
-
+}

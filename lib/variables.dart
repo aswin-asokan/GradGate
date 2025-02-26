@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter_quill/flutter_quill.dart';
 //Employer
 
@@ -15,19 +13,19 @@ String var_mail = "";
 //job posting
 String job_title = "";
 String salary = "";
-Document? job_desc ;
+Document? job_desc;
 String job_type = "";
 String department = "";
 String reqrmt = "";
 String end_date = "";
-String aboutComp="";
-int job_id= 0;
+String aboutComp = "";
+int job_id = 0;
 String apply_job_id = "";
 String? stuDepartment;
 int selectedCollegeId = 0;
 //applications
 String statusUp = "";
-String StAccess="";
+String StAccess = "";
 
 final List<String> departments = [
   "Computer Science",
@@ -38,4 +36,3 @@ final List<String> departments = [
   "Electronics",
   "EEE",
 ];
-

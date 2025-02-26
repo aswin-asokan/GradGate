@@ -6,8 +6,6 @@ import 'package:gradgate/Employer/jobpost.dart';
 import 'package:gradgate/colors.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:gradgate/variables.dart';
-import 'dart:convert'; // Ensure this import for JSON encoding/decoding
-
 
 class Homeemp extends StatefulWidget {
   const Homeemp({super.key});
@@ -17,10 +15,9 @@ class Homeemp extends StatefulWidget {
 }
 
 class _HomeempState extends State<Homeemp> {
-
   List<Widget> pages = [const Empdashboard(), const Jobpost(), const Profile()];
   int selectedIndex = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -113,18 +110,19 @@ class _HomeempState extends State<Homeemp> {
               SidebarXItem(
                   icon: Icons.person_outline,
                   label: '  Profile',
-                  onTap: ()async{
-                    Map<String, dynamic> empData = await Usercont().empDetails( );
-                   setState(() {
-                    var_name = empData['company_name'];
-                    var_loc = empData['location'];
-                    var_phone = empData['e_phone'];
-                    var_type = empData['industry_type'];
-                    aboutComp = empData['about'];
-                    urlImg = empData['imgUrl'];
-                        selectedIndex = 2;
-                      });
-                      }),
+                  onTap: () async {
+                    Map<String, dynamic> empData =
+                        await Usercont().empDetails();
+                    setState(() {
+                      var_name = empData['company_name'];
+                      var_loc = empData['location'];
+                      var_phone = empData['e_phone'];
+                      var_type = empData['industry_type'];
+                      aboutComp = empData['about'];
+                      urlImg = empData['imgUrl'];
+                      selectedIndex = 2;
+                    });
+                  }),
             ],
             showToggleButton: false,
           ),

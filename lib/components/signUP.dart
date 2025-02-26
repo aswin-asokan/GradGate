@@ -1,15 +1,11 @@
-
 import 'package:email_validator_flutter/email_validator_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/custPass.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
-import 'package:password_strength_checker/password_strength_checker.dart';
 import 'package:gradgate/Controller/logCon.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
 
 class Sign extends StatefulWidget {
   const Sign({super.key});
@@ -17,7 +13,6 @@ class Sign extends StatefulWidget {
   @override
   State<Sign> createState() => _SignState();
 }
-
 
 class _SignState extends State<Sign> {
   TextEditingController email = TextEditingController();
@@ -119,17 +114,16 @@ class _SignState extends State<Sign> {
                           String passwordValue = pass.text.trim();
                           String userTypeValue =
                               type; // Assuming you have user type
-                          var strength =
-                              PasswordStrength.calculate(text: passwordValue);
                           setState(() {
                             var_mail = emailValue.toString();
                             var_type = userTypeValue;
                           });
                           // Check if the email already exists
-                          
-                          Map<String, dynamic> loginResult = await AuthService().verifyUser( pass.text);
-                           
-                          bool exists =loginResult['success'];
+
+                          Map<String, dynamic> loginResult =
+                              await AuthService().verifyUser(pass.text);
+
+                          bool exists = loginResult['success'];
                           bool mailvalid =
                               EmailValidatorFlutter().validateEmail(emailValue);
                           if (!mailvalid) {
@@ -158,7 +152,8 @@ class _SignState extends State<Sign> {
                                 "The Passwords you have entered is weak. Try a new password.",
                                 // ignore: use_build_context_synchronously
                                 context);
-                          }*/ else {
+                          }*/
+                          else {
                             if (exists) {
                               // Show a message indicating that the email is already taken
                               toast(
@@ -169,30 +164,32 @@ class _SignState extends State<Sign> {
                             } else {
                               // Proceed to insert the new user
 
-                              Map<String, dynamic>  signupResult = await AuthService().signUp(passwordValue);
-                               if (signupResult['success'] == true) {
-                             SharedPreferences prefs = await SharedPreferences.getInstance();
-                            // Retrieve user type and ID
-                                 String id = signupResult['user_id'];
-                                 String userType = signupResult['user_type'];
-setState(() {
-  StAccess = userType;
-});
+                              Map<String, dynamic> signupResult =
+                                  await AuthService().signUp(passwordValue);
+                              if (signupResult['success'] == true) {
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                // Retrieve user type and ID
+                                String id = signupResult['user_id'];
+                                String userType = signupResult['user_type'];
+                                setState(() {
+                                  StAccess = userType;
+                                });
                                 // Store ID and user type in SharedPreferences
-                             await prefs.setString('userId', id);
-                             await prefs.setString('userType', userType);  
-                              // Show a success message or navigate to another page
-                              if (userTypeValue == "Student") {
-                                Navigator.popAndPushNamed(
-                                    context, '/StudentDetails');
-                              } else if (userTypeValue == "Employer") {
-                                Navigator.popAndPushNamed(
-                                    context, '/EmployerDetails');
-                              } else {
-                                Navigator.popAndPushNamed(
-                                    context, '/CollegeRegister');
+                                await prefs.setString('userId', id);
+                                await prefs.setString('userType', userType);
+                                // Show a success message or navigate to another page
+                                if (userTypeValue == "Student") {
+                                  Navigator.popAndPushNamed(
+                                      context, '/StudentDetails');
+                                } else if (userTypeValue == "Employer") {
+                                  Navigator.popAndPushNamed(
+                                      context, '/EmployerDetails');
+                                } else {
+                                  Navigator.popAndPushNamed(
+                                      context, '/CollegeRegister');
+                                }
                               }
-                               }
                             }
                           }
                         }, // Call the sign-up handler

@@ -59,7 +59,7 @@ class _ProfileImageState extends State<ProfileImage> {
               TextButton(
                   onPressed: () {
                     setState(() {
-                    //  image = url.text.toString().trim();
+                      //  image = url.text.toString().trim();
                       urlImg = url.text.toString().trim();
                     });
                     Navigator.of(context).pop();
@@ -72,6 +72,7 @@ class _ProfileImageState extends State<ProfileImage> {
           ));
 }
 
+// ignore: must_be_immutable
 class editProImg extends StatefulWidget {
   final double width;
   String path;

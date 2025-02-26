@@ -6,9 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/imgPicker.dart';
 import 'package:gradgate/components/widgets.dart';
-import 'package:gradgate/variables.dart';
 import 'package:gradgate/Controller/userCont.dart';
-
 
 class Empregister extends StatefulWidget {
   const Empregister({super.key});
@@ -66,35 +64,33 @@ class _EmpregisterState extends State<Empregister> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed:  () async {
-                        SharedPreferences prefs = await SharedPreferences.getInstance();
+                      onPressed: () async {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
 
-                           String? user_id = prefs.getString('userId') ??'no value';
-                            
-                            var jsonAbout = await  jsonEncode(about.document.toDelta().toJson());
+                        String? user_id =
+                            prefs.getString('userId') ?? 'no value';
+
+                        var jsonAbout =
+                            await jsonEncode(about.document.toDelta().toJson());
                         setState(() {
                           // Convert Quill document to JSON
-                          
-                             urlImg = urlImg ??
-                            "assets/images/no-profile-picture-15258 (1).png";
-                      
                         });
 
                         // Check if image URL is null
-                        
 
                         // Insert employer data into the database
-                      
-            Map<String, dynamic>  addResult = await Usercont().addUser(user_id,jsonAbout);
-                     
-          if(addResult['success'])
-        {
-                        toast(
-                            "Registration Successful",
-                            "You have successfully completed the registration process. Use the credentials to login.",
-                            context);
-                        Navigator.popAndPushNamed(context, '/login');
-        }
+
+                        Map<String, dynamic> addResult =
+                            await Usercont().addUser(user_id, jsonAbout);
+
+                        if (addResult['success']) {
+                          toast(
+                              "Registration Successful",
+                              "You have successfully completed the registration process. Use the credentials to login.",
+                              context);
+                          Navigator.popAndPushNamed(context, '/login');
+                        }
                       },
                       style: ButtonStyle(
                           backgroundColor:

@@ -3,10 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gradgate/components/locationField.dart';
 import 'package:gradgate/components/widgets.dart';
 import 'package:gradgate/variables.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gradgate/Controller/collCon.dart';
-
-
 
 class Coldetails extends StatefulWidget {
   const Coldetails({super.key});
@@ -83,7 +80,7 @@ class _ColdetailsState extends State<Coldetails> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: ()async {
+                      onPressed: () async {
                         if (name.text.isNotEmpty &&
                             location.text.isNotEmpty &&
                             phone.text.isNotEmpty) {
@@ -91,20 +88,19 @@ class _ColdetailsState extends State<Coldetails> {
                             var_loc = location.text.toString();
                             var_name = name.text.toString();
                             var_phone = phone.text.toString();
-                            print(var_name); 
+                            print(var_name);
                           });
-                          
-        Map<String, dynamic>  addResult = await collCont().addColl();
-                     
-          if(addResult['success'])
-        {
-                        toast(
-                            "Registration Successful",
-                            "You have successfully completed the registration process. Use the credentials to login.",
-                            context);
-                        Navigator.popAndPushNamed(context, '/login');
-        }
-                              
+
+                          Map<String, dynamic> addResult =
+                              await collCont().addColl();
+
+                          if (addResult['success']) {
+                            toast(
+                                "Registration Successful",
+                                "You have successfully completed the registration process. Use the credentials to login.",
+                                context);
+                            Navigator.popAndPushNamed(context, '/login');
+                          }
                         } else {
                           toast("Empty Fields", "Please fill all the fields",
                               context);

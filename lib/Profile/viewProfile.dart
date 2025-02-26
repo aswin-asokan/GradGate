@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:gradgate/colors.dart';
-import 'package:gradgate/variables.dart';
 
 // ignore: must_be_immutable
 class Viewprofile extends StatefulWidget {
   String name;
-  String userType; 
+  String userType;
   String imgLink;
-String nameOrCompany;
-String depOrType ;
-String locationOrCollege;
-String mail;
-String phone ;
-Document about = Document();
-  Viewprofile({super.key,
-   required this.name,
-   required this.userType,
-   required this.imgLink,
-   required this.nameOrCompany,
-   required this.depOrType,
-   required this.locationOrCollege,
-   required this.mail,
-   required this.phone,
-   required this.about,
-   
+  String nameOrCompany;
+  String depOrType;
+  String locationOrCollege;
+  String mail;
+  String phone;
+  Document about = Document();
+  Viewprofile({
+    super.key,
+    required this.name,
+    required this.userType,
+    required this.imgLink,
+    required this.nameOrCompany,
+    required this.depOrType,
+    required this.locationOrCollege,
+    required this.mail,
+    required this.phone,
+    required this.about,
   });
 
   @override

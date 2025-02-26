@@ -1,33 +1,27 @@
 import 'dart:convert';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:http/http.dart' as http;
 import 'package:gradgate/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
-
 class Usercont {
-  
   // Function to add Employer
-  Future<Map<String, dynamic>> addUser( String user_id,String about) async {
-    final String url = 'http://localhost/Flutter/Api/insert_emp.php?action=addEmp'; // Replace with your PHP script URL
+  Future<Map<String, dynamic>> addUser(String user_id, String about) async {
+    final String url =
+        'http://localhost/Flutter/Api/insert_emp.php?action=addEmp'; // Replace with your PHP script URL
 
     try {
-      
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'user_id' : user_id,
+          'user_id': user_id,
           'comp_name': var_name,
           'location': var_loc,
           'ind_type': var_type,
           'phone': var_phone,
-           'about': about,
-            'imgUrl': urlImg,
+          'about': about,
+          'imgUrl': urlImg,
         },
       );
-      
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body); // Decode the response
@@ -40,24 +34,25 @@ class Usercont {
       return {'success': false}; // Return false on exception
     }
   }
- 
+
   // Functio to post job
   Future<Map<String, dynamic>> postJob(String job_desc) async {
-    final String url = 'http://localhost/Flutter/Api/insert_emp.php?action=postJob'; // Replace with your PHP script URL
+    final String url =
+        'http://localhost/Flutter/Api/insert_emp.php?action=postJob'; // Replace with your PHP script URL
 
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      String? user_id = prefs.getString('userId') ??'no value';
+      String? user_id = prefs.getString('userId') ?? 'no value';
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'userId' : user_id,
+          'userId': user_id,
           'job_title': job_title,
           'job_description': job_desc,
           'salary': salary,
-          'job_type':job_type,
-          'department': department,          
+          'job_type': job_type,
+          'department': department,
           'requirements': reqrmt,
           'end_date': end_date,
         },
@@ -77,9 +72,9 @@ class Usercont {
 
   // Function to retrieve jobList
   Future<Map<String, dynamic>> jobList() async {
-
-     try {
-       final String url = 'http://localhost/Flutter/Api/insert_emp.php?action=jobList'; 
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/insert_emp.php?action=jobList';
       // Get user ID from shared preferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId') ?? 'no value';
@@ -111,13 +106,13 @@ class Usercont {
       print("Error: $e");
       return {'jobDet': []}; // Return an empty list on exception
     }
-   
   }
-// retrieve employee details
-   Future<Map<String, dynamic>> empDetails() async {
 
-     try {
-       final String url = 'http://localhost/Flutter/Api/insert_emp.php?action=empDetails'; 
+// retrieve employee details
+  Future<Map<String, dynamic>> empDetails() async {
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/insert_emp.php?action=empDetails';
       // Get user ID from shared preferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId') ?? 'no value';
@@ -140,14 +135,13 @@ class Usercont {
       print("Error: $e");
       return {'success': false}; // Return false on exception
     }
-  
   }
 
   // retrieve students details according to a job
-   Future<Map<String, dynamic>> studList(String jobId) async {
-
-     try {
-       final String url = 'http://localhost/Flutter/Api/jobDeal.php?action=studDet';      
+  Future<Map<String, dynamic>> studList(String jobId) async {
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/jobDeal.php?action=studDet';
 
       // Make the POST request to the API
       final response = await http.post(
@@ -157,7 +151,7 @@ class Usercont {
         },
       );
 
-     if (response.statusCode == 200) {
+      if (response.statusCode == 200) {
         // Decode the response body
         var decodedResponse = jsonDecode(response.body);
 
@@ -172,21 +166,21 @@ class Usercont {
       }
     } catch (e) {
       print("Error: $e");
-return {'stuDet': []};    }
-  
+      return {'stuDet': []};
+    }
   }
 
   // retrieve students details according to a job
-   Future<Map<String, dynamic>> studUpdate(String status,String appId) async {
-
-     try {
-       final String url = 'http://localhost/Flutter/Api/jobDeal.php?action=stuUp';      
+  Future<Map<String, dynamic>> studUpdate(String status, String appId) async {
+    try {
+      final String url =
+          'http://localhost/Flutter/Api/jobDeal.php?action=stuUp';
 
       // Make the POST request to the API
       final response = await http.post(
         Uri.parse(url),
         body: {
-          'appId': appId, 
+          'appId': appId,
           'status': status,
         },
       );
@@ -201,7 +195,5 @@ return {'stuDet': []};    }
       print("Error: $e");
       return {'success': false}; // Return false on exception
     }
-  
   }
 }
-
