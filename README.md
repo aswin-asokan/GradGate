@@ -2,8 +2,8 @@
 
 **Version:** 1.5.0  
 **Platforms Supported:** Android (Tablet), Linux  
-**Database:** SQLite (via `sqflite`)
-
+**Database:** SQLite (via `sqflite`)   
+**Dowload:** [Releases](https://github.com/aswin-asokan/GradGate/releases/tag/v1.5.0)
 ## 📖 About
 
 GradGate is a lightweight and powerful placement management simulation app built with Flutter. It helps simulate and manage a simplified version of a college placement system using a local SQLite database. GradGate is designed to mimic the working of a real-world placement system. It supports functionality for students, employers, and colleges—providing a seamless experience for job applications, employer listings, and candidate management, all handled locally without a remote backend.
