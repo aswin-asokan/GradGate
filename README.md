@@ -113,27 +113,17 @@ GradGate is a lightweight and powerful placement management simulation app built
 
 ---
 
-## 📎 Screenshots
-![ss2](https://github.com/user-attachments/assets/383324d2-de18-4d0f-bbc1-ac4d270fdb84)
-![ss3](https://github.com/user-attachments/assets/b6aade59-bb87-4ecc-9ede-af22b78cdb55)
-![ss14](https://github.com/user-attachments/assets/05ec0306-7143-48fb-adc9-9ac2133415ae)
-![ss13](https://github.com/user-attachments/assets/66092e41-39dc-4c7f-b97e-b0af6460d8f2)
-![ss12](https://github.com/user-attachments/assets/57ae04b0-0cdc-488f-9088-5bc8041594c6)
-![ss11](https://github.com/user-attachments/assets/fb512e21-58c3-4664-94be-c03c4f37dafb)
-![ss10](https://github.com/user-attachments/assets/b9331a87-85f1-4136-8e77-d95fe8e25b3b)
-![ss9](https://github.com/user-attachments/assets/41eddb0f-b807-4d1a-8003-b3e73b66c0de)
-![ss8](https://github.com/user-attachments/assets/e46b0f8a-afd7-46ad-b3d3-3868ceb7c078)
-![ss7](https://github.com/user-attachments/assets/f2cc8a4c-1ea4-4241-9713-615ad449d459)
-![ss6](https://github.com/user-attachments/assets/0c5f7e42-a5f2-49e2-89e9-1bf38e54835e)
-![ss5](https://github.com/user-attachments/assets/21c7f26f-0fe5-4885-8b68-6e8ed628fa03)
-![ss4](https://github.com/user-attachments/assets/3227cd1f-5fc7-41f1-b64c-2be52c82e204)
-
 ## 📱 App Screenshots
 
-| ![ss1](https://github.com/user-attachments/assets/428909aa-c139-4c62-bc8b-c4fd8e5a6c0f) | ![](assets/screenshots/ss2.png) | ![](assets/screenshots/ss3.png) | ![](assets/screenshots/ss4.png) | ![](assets/screenshots/ss5.png) | ![](assets/screenshots/ss6.png) | ![](assets/screenshots/ss7.png) |
-|----------------------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|----------------------------------|
-| ![](assets/screenshots/ss8.png) | ![](assets/screenshots/ss9.png) | ![](assets/screenshots/ss10.png) | ![](assets/screenshots/ss11.png) | ![](assets/screenshots/ss12.png) | ![](assets/screenshots/ss13.png) | ![](assets/screenshots/ss14.png) |
-
+| Screenshot                                                                               | Screenshot                                                                               |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| ![ss1](https://github.com/user-attachments/assets/428909aa-c139-4c62-bc8b-c4fd8e5a6c0f)  | ![ss2](https://github.com/user-attachments/assets/383324d2-de18-4d0f-bbc1-ac4d270fdb84)  |
+| ![ss3](https://github.com/user-attachments/assets/b6aade59-bb87-4ecc-9ede-af22b78cdb55)  | ![ss4](https://github.com/user-attachments/assets/3227cd1f-5fc7-41f1-b64c-2be52c82e204)  |
+| ![ss5](https://github.com/user-attachments/assets/21c7f26f-0fe5-4885-8b68-6e8ed628fa03)  | ![ss6](https://github.com/user-attachments/assets/0c5f7e42-a5f2-49e2-89e9-1bf38e54835e)  |
+| ![ss7](https://github.com/user-attachments/assets/f2cc8a4c-1ea4-4241-9713-615ad449d459)  | ![ss8](https://github.com/user-attachments/assets/e46b0f8a-afd7-46ad-b3d3-3868ceb7c078)  |
+| ![ss9](https://github.com/user-attachments/assets/41eddb0f-b807-4d1a-8003-b3e73b66c0de)  | ![ss10](https://github.com/user-attachments/assets/b9331a87-85f1-4136-8e77-d95fe8e25b3b) |
+| ![ss11](https://github.com/user-attachments/assets/fb512e21-58c3-4664-94be-c03c4f37dafb) | ![ss12](https://github.com/user-attachments/assets/57ae04b0-0cdc-488f-9088-5bc8041594c6) |
+| ![ss13](https://github.com/user-attachments/assets/66092e41-39dc-4c7f-b97e-b0af6460d8f2) | ![ss14](https://github.com/user-attachments/assets/05ec0306-7143-48fb-adc9-9ac2133415ae) |
 
 ## 🔖 References:
 
