@@ -1,0 +1,85 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+*.tmp
+*.bak
+*.old
+*.orig
+
+# System Folders
+.idea/
+.vscode/
+.svn/
+.atom/
+.history
+
+# Flutter / Dart / Pub
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+.melody/
+
+# Build outputs
+/build/
+**/build/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# Android
+/android/.gradle
+/android/captures/
+/android/gradle-wrapper.properties
+/android/local.properties
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# iOS
+/ios/Pods/
+/ios/.symlinks/
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/ephemeral/
+
+# macOS
+/macos/Flutter/ephemeral/
+/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Windows
+/windows/Flutter/ephemeral/
+/windows/Flutter/generated_plugin_registrant.cc
+
+# Linux
+/linux/Flutter/ephemeral/
+/linux/Flutter/generated_plugin_registrant.cc
+
+# Web
+/web/.dart_tool/
+/web/build/
+
+# Symbolication / Obfuscation
+app.*.symbols
+app.*.map.json
+
+# IDEs
+*.iml
+*.ipr
+*.iws
+*.sublime-workspace
+*.sublime-project
+
+# Generated files
+*.g.dart
+*.freezed.dart
+
+# Others
+migrate_working_dir/

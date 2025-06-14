@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/home/aswin/Documents/GitHub/GradGate/linux"
+    "cmake.sourceDirectory": "/home/aswin/Documents/GitHub/GradGate/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

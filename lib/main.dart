@@ -1,20 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:gradgate/College/colSettings.dart';
-import 'package:gradgate/College/homeColl.dart';
-import 'package:gradgate/Employer/homeEmp.dart';
-import 'package:gradgate/College/colRegUI.dart';
-import 'package:gradgate/Employer/empDetailsUI.dart';
-import 'package:gradgate/Employer/empRegUI.dart';
-import 'package:gradgate/Profile/loginUI.dart';
-import 'package:gradgate/Profile/settings.dart';
-import 'package:gradgate/Profile/signupUI.dart';
-import 'package:gradgate/Student/studDetailsUI.dart';
-import 'package:gradgate/Student/studRegUI.dart';
-import 'package:gradgate/Student/homeStud.dart';
-import 'package:gradgate/Student/studSettings.dart';
+import 'dart:io';
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:gradgate/features/College/presentation/screens/college_settings.dart';
+import 'package:gradgate/features/College/presentation/screens/college_home.dart';
+import 'package:gradgate/features/Employer/presentation/screens/employer_home.dart';
+import 'package:gradgate/features/College/presentation/screens/college_registration.dart';
+import 'package:gradgate/features/Employer/presentation/screens/employer_details_ui.dart';
+import 'package:gradgate/features/Employer/presentation/screens/employer_register_ui.dart';
+import 'package:gradgate/Profile/presentation/screens/login_ui.dart';
+import 'package:gradgate/Profile/presentation/screens/signup_ui.dart';
+import 'package:gradgate/features/Student/presentation/screens/stud_registration_ui.dart';
+import 'package:gradgate/features/Student/presentation/screens/student_details_ui.dart';
+import 'package:gradgate/features/Student/presentation/screens/student_home.dart';
+import 'package:gradgate/Profile/presentation/screens/settings.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+void main() async {
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    sqfliteFfiInit();
+    // Set the default factory for sqflite_common to use the ffi implementation
+    databaseFactory = databaseFactoryFfi;
+  }
   runApp(const MyApp());
 }
 
@@ -27,19 +35,21 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           '/login': (context) => const LoginUI(),
-          '/signup': (context) => const Signupui(),
-          '/StudentHome': (context) => const Homestud(),
-          '/EmployerHome': (context) => const Homeemp(),
-          '/CollegeHome': (context) => const Homecoll(),
-          '/StudentRegister': (context) => const Studregui(),
-          '/StudentDetails': (context) => const Studdetailsui(),
-          '/CollegeRegister': (context) => const ColregUI(),
-          '/EmployerRegister': (context) => const Empregui(),
-          '/EmployerDetails': (context) => const EmpDetailsUI(),
-          '/Settings': (context) => const Settings(),
-          '/colSettings': (context) => const Colsettings(),
-          '/studSettings': (context) => const Studsettings()
+          '/signup': (context) => const SignupUi(),
+          '/StudentHome': (context) => const StudentHome(),
+          '/EmployerHome': (context) => const EmployerHome(),
+          '/CollegeHome': (context) => const CollegeHome(),
+          '/StudentRegister': (context) => const StudRegistrationUi(),
+          '/StudentDetails': (context) => const StudentDetailsUi(),
+          '/CollegeRegister': (context) => const CollegeRegistration(),
+          '/EmployerRegister': (context) => const EmployerRegisterUi(),
+          '/EmployerDetails': (context) => const EmployerDetailsUi(),
+          '/colSettings': (context) => const CollegeSettings(),
+          '/Settings': (context) => const Settings()
         },
+        localizationsDelegates: const [
+          FlutterQuillLocalizations.delegate,
+        ],
         theme: ThemeData(
             textTheme:
                 GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
