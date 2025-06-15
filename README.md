@@ -3,7 +3,7 @@
 **Version:** 1.5.0  
 **Platforms Supported:** Android (Tablet), Linux  
 **Database:** SQLite (via `sqflite`)  
-**Dowload:** [Releases](https://github.com/aswin-asokan/GradGate/releases/tag/v1.5.0)
+**Download:** [Releases](https://github.com/aswin-asokan/GradGate/releases/tag/v1.5.0)
 
 ### 💾 Linux Runtime Requirements
 
