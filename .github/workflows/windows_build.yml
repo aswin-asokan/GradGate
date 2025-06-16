@@ -1,0 +1,38 @@
+name: Flutter Windows CI
+
+on:
+  push:
+    branches:
+      - main # or master, or any branch you want to trigger the build on
+  pull_request:
+    branches:
+      - main # Optional: also run on pull requests
+
+jobs:
+  build_windows:
+    runs-on: windows-latest # Use a Windows runner for Windows builds
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Action to checkout your code
+
+      - name: Set up Flutter SDK
+        uses: subosito/flutter-action@v2 # Action to set up Flutter environment
+        with:
+          channel: 'stable' # or 'beta' or 'dev' depending on your project's needs
+
+      - name: Enable Windows desktop
+        run: flutter config --enable-windows-desktop
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      - name: Build Windows Release
+        run: flutter build windows --release
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4 # Action to upload build artifacts
+        with:
+          name: windows-release-build
+          path: build\windows\x64\runner\Release # Path to your Windows build output
+          retention-days: 7 # Optional: how long to keep the artifact (default is 90 days)
