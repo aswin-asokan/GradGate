@@ -58,7 +58,8 @@ GradGate is a lightweight and powerful placement management simulation app built
 
 - 💾 **Local Persistence**
   - Entire system functions offline using `sqflite`.
-
+- 📱💻 **Cross Platform Support**   
+  - Supports Android(Tablet), Linux(Prerequisites should be met), Windows
 ---
 
 ## 🛠️ Table Schema Overview
